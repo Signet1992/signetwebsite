@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products &amp; Services — Signet Enterprise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d0d0d;--cream:#f5f0e8;--warm:#faf8f4;--gold:#c8a96e;--slate:#4a5568;--border:rgba(13,13,13,.11)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--warm);color:var(--ink);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 56px;background:rgba(250,248,244,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--ink);text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-cta{background:var(--ink);color:var(--cream);padding:10px 26px;font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--gold);color:var(--ink)}
+/* Hero */
+.page-hero{padding:160px 80px 100px;background:var(--ink);color:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end}
+.ph-eyebrow{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.ph-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.ph-h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:900;line-height:1.05;letter-spacing:-.02em}
+.ph-h1 em{font-style:italic;color:var(--gold)}
+.ph-right{padding-bottom:8px}
+.ph-intro{font-size:1rem;line-height:1.8;color:rgba(245,240,232,.65);margin-bottom:16px}
+.ph-intro-b{font-size:.9rem;line-height:1.8;color:rgba(245,240,232,.45);font-style:italic;margin-bottom:0}
+/* Shared */
+.eyebrow{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.sh2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin-bottom:24px}
+.sbody{font-size:.95rem;line-height:1.8;color:var(--slate);margin-bottom:28px}
+.flist{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.flist li{display:flex;align-items:flex-start;gap:12px;font-size:.88rem;line-height:1.5}
+.flist li::before{content:'→';color:var(--gold);flex-shrink:0}
+.btn-p{background:var(--ink);color:var(--cream);padding:15px 34px;font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:all .25s;display:inline-block}
+.btn-p:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px)}
+/* Intro statement */
+.intro-band{padding:80px;background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.intro-quote{font-family:'Playfair Display',serif;font-size:1.25rem;font-style:italic;line-height:1.7;color:var(--ink);border-left:3px solid var(--gold);padding-left:28px}
+/* Category sections */
+.cat-section{display:grid;grid-template-columns:1fr 1fr;min-height:72vh}
+.cat-vis{position:relative;overflow:hidden;background:#111}
+.cat-vis img{width:100%;height:100%;object-fit:cover;opacity:.8;transition:transform 8s ease}
+.cat-vis:hover img{transform:scale(1.05)}
+.cat-num{position:absolute;top:40px;left:40px;font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:rgba(200,169,110,.25);line-height:1}
+.cat-body{padding:80px;display:flex;flex-direction:column;justify-content:center}
+.cat-section:nth-child(even) .cat-body{background:var(--cream)}
+.cat-section:nth-child(odd) .cat-body{background:var(--warm)}
+.cat-note{font-size:.82rem;color:var(--slate);font-style:italic;border-top:1px solid var(--border);padding-top:20px;margin-top:4px;line-height:1.6}
+/* Alternating layout */
+.cat-section.flip{direction:rtl}
+.cat-section.flip>*{direction:ltr}
+/* Services */
+.services{padding:120px 80px;background:var(--ink);color:var(--cream)}
+.svc-hdr{text-align:center;max-width:640px;margin:0 auto 80px}
+.svc-hdr .sh2{color:var(--cream)}
+.svc-hdr .sbody{color:rgba(245,240,232,.55)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.svc{background:rgba(255,255,255,.03);border:1px solid rgba(200,169,110,.15);padding:48px 36px;transition:border-color .3s,background .3s;display:flex;flex-direction:column}
+.svc:hover{border-color:var(--gold);background:rgba(200,169,110,.05)}
+.svc-step{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(200,169,110,.6);margin-bottom:16px}
+.svc-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:14px;color:var(--cream)}
+.svc-body{font-size:.86rem;color:rgba(245,240,232,.5);line-height:1.75;margin-bottom:20px}
+.svc .flist{flex:1}
+.svc .flist li{color:rgba(245,240,232,.7);font-size:.82rem}
+.svc .flist li::before{color:var(--gold)}
+.svc-outcome{font-size:.78rem;color:rgba(200,169,110,.7);font-style:italic;border-top:1px solid rgba(200,169,110,.15);padding-top:16px;margin-top:auto;line-height:1.6}
+/* Factory network */
+.network{padding:120px 80px;background:var(--warm)}
+.network-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.network-vis{position:relative;overflow:hidden;background:#111;min-height:500px}
+.network-vis img{width:100%;height:100%;object-fit:cover;opacity:.8}
+.network-points{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:32px}
+.np{background:var(--cream);padding:28px 24px;border-top:2px solid var(--border);transition:border-color .3s}
+.np:hover{border-color:var(--gold)}
+.np-title{font-weight:600;font-size:.88rem;margin-bottom:6px}
+.np-body{font-size:.8rem;color:var(--slate);line-height:1.6}
+/* Why */
+.why{padding:120px 80px;background:var(--cream)}
+.why-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.why-list{display:flex;flex-direction:column;gap:2px}
+.why-item{display:flex;align-items:flex-start;gap:20px;padding:28px 32px;background:var(--warm);border-left:3px solid var(--border);transition:border-color .3s}
+.why-item:hover{border-color:var(--gold)}
+.wi-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--gold);flex-shrink:0;line-height:1;padding-top:4px}
+.wi-title{font-weight:600;font-size:.9rem;margin-bottom:5px}
+.wi-body{font-size:.82rem;color:var(--slate);line-height:1.6}
+/* CTA */
+.cta-strip{background:var(--gold);padding:100px 80px;text-align:center}
+.cta-sub{font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(13,13,13,.5);margin-bottom:20px}
+.cta-strip .sh2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;color:var(--ink);margin-bottom:16px;letter-spacing:-.02em}
+.cta-strip p{font-size:.95rem;color:rgba(13,13,13,.65);max-width:520px;margin:0 auto 36px;line-height:1.7}
+/* Footer */
+footer{background:#080808;color:rgba(245,240,232,.55);padding:80px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}
+.flogo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--cream);margin-bottom:16px;display:block;text-decoration:none}
+.flogo span{color:var(--gold)}
+.ftagline{font-size:.86rem;line-height:1.75;margin-bottom:28px}
+.faddr{font-size:.8rem;line-height:1.85}
+.fcol-t{font-size:.7rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--cream);margin-bottom:18px}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:10px}
+.flinks a{color:rgba(245,240,232,.45);font-size:.86rem;text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--gold)}
+.fbot{background:#080808;border-top:1px solid rgba(255,255,255,.06);padding:22px 80px;display:flex;justify-content:space-between;font-size:.76rem;color:rgba(245,240,232,.28)}
+@media(max-width:1024px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  .page-hero,.intro-band,.cat-section,.cat-section.flip,.network-inner,.why-inner{grid-template-columns:1fr;direction:ltr}
+  .page-hero,.intro-band,.cat-body,.services,.network,.why,.cta-strip{padding:60px 28px}
+  .cat-vis{height:60vw}
+  .svc-grid{grid-template-columns:1fr}
+  .network-vis{height:60vw}
+  .network-points{grid-template-columns:1fr 1fr}
+  footer{grid-template-columns:1fr 1fr;padding:60px 28px}
+  .fbot{padding:20px 28px;flex-direction:column;gap:6px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Signet<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="about-v2.html">About</a></li>
+    <li><a href="products.html" class="active">Products &amp; Services</a></li>
+    <li><a href="sourcing.html">Responsible Sourcing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div>
+    <div class="ph-eyebrow">Products &amp; Services</div>
+    <h1 class="ph-h1">Apparel sourcing and production management in <em>Asia.</em></h1>
+  </div>
+  <div class="ph-right">
+    <p class="ph-intro">Signet manages apparel sourcing and production for global brands through its established factory network across Asia, with core manufacturing capability in Bangladesh and Pakistan.</p>
+    <p class="ph-intro">For over three decades, we have provided structured production management, quality control, and supply chain oversight — supporting brands that require reliable garment manufacturing with full operational transparency.</p>
+    <p class="ph-intro-b">Our in-country sourcing, development, and quality control teams ensure production operates to defined standards from initial design through to final shipment. This integrated approach provides brands with confidence in quality, compliance, and delivery.</p>
+  </div>
+</section>
+
+<!-- INTRO BAND -->
+<div class="intro-band">
+  <div>
+    <div class="eyebrow">Production Capability</div>
+    <h2 class="sh2">Established across key apparel categories.</h2>
+    <p class="sbody">Production across Signet's factory network in Bangladesh, Pakistan, and Asia supports a wide range of apparel sectors. Each category is supported by specialist in-country teams with deep product knowledge.</p>
+  </div>
+  <div class="intro-quote">
+    "Our in-country teams operate where production happens — ensuring every order is managed with the same level of oversight, regardless of complexity or scale."
+  </div>
+</div>
+
+<!-- WORKWEAR -->
+<section class="cat-section" id="workwear">
+  <div class="cat-vis">
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&q=85&fit=crop&crop=center" alt="Workwear and safety garments">
+    <div class="cat-num">01</div>
+  </div>
+  <div class="cat-body">
+    <div class="eyebrow">Category 01</div>
+    <h2 class="sh2">Workwear &amp; Corporatewear</h2>
+    <p class="sbody">Durable garments designed for professional, industrial, and corporate environments.</p>
+    <ul class="flist">
+      <li>Industrial workwear</li>
+      <li>Corporate uniforms</li>
+      <li>Protective clothing</li>
+      <li>High-visibility garments</li>
+    </ul>
+    <p class="cat-note">Bangladesh and Pakistan provide strong capability in compliance-driven and technical garment manufacturing.</p>
+  </div>
+</section>
+
+<!-- SPORTSWEAR -->
+<section class="cat-section flip" id="sports">
+  <div class="cat-vis">
+    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1000&q=85&fit=crop&crop=center" alt="Sports and activewear">
+    <div class="cat-num">02</div>
+  </div>
+  <div class="cat-body">
+    <div class="eyebrow">Category 02</div>
+    <h2 class="sh2">Sportswear &amp; Activewear</h2>
+    <p class="sbody">Performance garments engineered for comfort, durability, and technical performance.</p>
+    <ul class="flist">
+      <li>Training apparel</li>
+      <li>Athleisure</li>
+      <li>Performance sportswear</li>
+      <li>Technical outerwear</li>
+    </ul>
+    <p class="cat-note">Production facilities support advanced fabric and performance garment construction.</p>
+  </div>
+</section>
+
+<!-- FASHION -->
+<section class="cat-section" id="fashion">
+  <div class="cat-vis">
+    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1000&q=85&fit=crop&crop=center" alt="Fashion and lifestyle clothing">
+    <div class="cat-num">03</div>
+  </div>
+  <div class="cat-body">
+    <div class="eyebrow">Category 03</div>
+    <h2 class="sh2">Fashion &amp; Lifestyle Apparel</h2>
+    <p class="sbody">Commercial apparel manufactured to global retail standards.</p>
+    <ul class="flist">
+      <li>Knitwear</li>
+      <li>Woven garments</li>
+      <li>Casualwear</li>
+      <li>Outerwear</li>
+    </ul>
+    <p class="cat-note">Bangladesh and Pakistan remain two of the world's most important garment manufacturing regions for global fashion brands.</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="svc-hdr">
+    <div class="eyebrow" style="display:flex;justify-content:center">Services</div>
+    <h2 class="sh2">Production managed at every stage.</h2>
+    <p class="sbody">Signet manages the full apparel sourcing and production lifecycle through its factory network — from initial design through to final shipment.</p>
+  </div>
+  <div class="svc-grid">
+
+    <div class="svc">
+      <div class="svc-step">Stage 01</div>
+      <div class="svc-title">Design, Development &amp; Sourcing</div>
+      <p class="svc-body">Garments are developed for production through structured design and technical development processes, with production requirements translated into manufacturing-ready products.</p>
+      <ul class="flist">
+        <li>Design interpretation and refinement</li>
+        <li>Technical garment development</li>
+        <li>Fabric and trim sourcing</li>
+        <li>Sampling and prototype development</li>
+        <li>Material sourcing and cost optimisation</li>
+        <li>Technical specification alignment</li>
+      </ul>
+      <div class="svc-outcome">This ensures garments are fully prepared and production-ready before manufacturing begins.</div>
+    </div>
+
+    <div class="svc">
+      <div class="svc-step">Stage 02</div>
+      <div class="svc-title">Production Allocation &amp; Planning</div>
+      <p class="svc-body">Production is allocated within Signet's factory network in Bangladesh, Pakistan, and Asia based on defined criteria.</p>
+      <ul class="flist">
+        <li>Technical capability</li>
+        <li>Product category</li>
+        <li>Production capacity</li>
+        <li>Compliance standards</li>
+      </ul>
+      <div class="svc-outcome">This ensures production operates in the most appropriate facility.</div>
+    </div>
+
+    <div class="svc">
+      <div class="svc-step">Stage 03</div>
+      <div class="svc-title">Production Management</div>
+      <p class="svc-body">Production is overseen throughout manufacturing by in-country teams.</p>
+      <ul class="flist">
+        <li>Production visibility</li>
+        <li>Timeline management</li>
+        <li>Operational control</li>
+      </ul>
+      <div class="svc-outcome">This ensures production progresses according to plan.</div>
+    </div>
+
+    <div class="svc">
+      <div class="svc-step">Stage 04</div>
+      <div class="svc-title">Quality Control &amp; Inspection</div>
+      <p class="svc-body">Quality is managed throughout production to ensure garments meet defined standards.</p>
+      <ul class="flist">
+        <li>Inline production oversight</li>
+        <li>Final inspection</li>
+        <li>Quality verification</li>
+      </ul>
+      <div class="svc-outcome">This protects product quality and consistency.</div>
+    </div>
+
+    <div class="svc">
+      <div class="svc-step">Stage 05</div>
+      <div class="svc-title">Compliance &amp; Responsible Production</div>
+      <p class="svc-body">Production operates within recognised compliance and responsible sourcing frameworks.</p>
+      <ul class="flist">
+        <li>Social compliance</li>
+        <li>Environmental standards</li>
+        <li>Certification requirements</li>
+      </ul>
+      <div class="svc-outcome">This ensures production meets global brand expectations.</div>
+    </div>
+
+    <div class="svc">
+      <div class="svc-step">Stage 06</div>
+      <div class="svc-title">Shipment &amp; Delivery Management</div>
+      <p class="svc-body">Shipment is managed to ensure reliable and timely delivery.</p>
+      <ul class="flist">
+        <li>Export coordination</li>
+        <li>Documentation management</li>
+        <li>Delivery monitoring</li>
+      </ul>
+      <div class="svc-outcome">This ensures garments move efficiently through the supply chain.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FACTORY NETWORK -->
+<section class="network">
+  <div class="network-inner">
+    <div class="network-vis">
+      <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=1000&q=85&fit=crop&crop=center" alt="Garment factory Bangladesh Pakistan">
+    </div>
+    <div>
+      <div class="eyebrow">Factory Network</div>
+      <h2 class="sh2">Established garment manufacturing capability for global brands.</h2>
+      <p class="sbody">Signet's factory network includes established garment manufacturing facilities across Bangladesh and Pakistan — two of the world's leading apparel production regions. Supported by permanent in-country sourcing and quality control teams, production operates with full oversight.</p>
+      <p class="sbody">This infrastructure provides global brands with reliable, scalable garment manufacturing capability.</p>
+      <div class="network-points">
+        <div class="np">
+          <div class="np-title">Large-Scale Manufacturing</div>
+          <div class="np-body">High-volume garment production across multiple categories and regions.</div>
+        </div>
+        <div class="np">
+          <div class="np-title">Specialist Production</div>
+          <div class="np-body">Technical and specialist apparel manufacturing capability.</div>
+        </div>
+        <div class="np">
+          <div class="np-title">Compliance-Driven</div>
+          <div class="np-body">Manufacturing within recognised social and environmental frameworks.</div>
+        </div>
+        <div class="np">
+          <div class="np-title">Full Oversight</div>
+          <div class="np-body">Permanent in-country teams managing production at every stage.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SIGNET -->
+<section class="why">
+  <div class="why-inner">
+    <div>
+      <div class="eyebrow">Why Brands Choose Signet</div>
+      <h2 class="sh2">What we bring to every partnership.</h2>
+      <p class="sbody">Global brands work with Signet because we provide the experience, infrastructure, and operational control that reliable garment manufacturing demands.</p>
+      <p class="sbody">Signet ensures production performs consistently and reliably — order after order.</p>
+      <a href="contact.html" class="btn-p">Start a Sourcing Conversation</a>
+    </div>
+    <div class="why-list">
+      <div class="why-item">
+        <div class="wi-num">01</div>
+        <div>
+          <div class="wi-title">Over 30 years apparel sourcing experience</div>
+          <div class="wi-body">Three decades of managing garment production across Asia for global brands.</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="wi-num">02</div>
+        <div>
+          <div class="wi-title">Established network in Bangladesh &amp; Pakistan</div>
+          <div class="wi-body">Long-term factory relationships built over decades of continuous operation.</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="wi-num">03</div>
+        <div>
+          <div class="wi-title">Dedicated in-country sourcing &amp; quality control teams</div>
+          <div class="wi-body">Permanent teams based where production happens — providing direct oversight.</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="wi-num">04</div>
+        <div>
+          <div class="wi-title">Transparent production management</div>
+          <div class="wi-body">Full visibility across every stage of the production lifecycle.</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="wi-num">05</div>
+        <div>
+          <div class="wi-title">Responsible and compliant manufacturing</div>
+          <div class="wi-body">Production aligned to recognised social and environmental standards.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="cta-sub">Your apparel sourcing partner in Bangladesh, Pakistan, and Asia</div>
+  <h2 class="sh2">Partner with Signet.</h2>
+  <p>If you are looking for a sourcing partner with proven garment manufacturing capability and operational infrastructure, Signet provides the expertise and network to support your business.</p>
+  <a href="contact.html" class="btn-p">Start a Sourcing Conversation</a>
+</div>
+
+<footer>
+  <div>
+    <a href="index.html" class="flogo">Signet<span>.</span></a>
+    <p class="ftagline">Managing apparel production for global brands through its factory network in Asia since 1992.</p>
+    <p class="faddr">Head Office: House # 9/11 (1st to 5th Floor)<br>Road # 21, Nikunja-02<br>Dhaka-1229, Bangladesh</p>
+  </div>
+  <div>
+    <div class="fcol-t">Company</div>
+    <ul class="flinks">
+      <li><a href="about-v2.html">About Signet</a></li>
+      <li><a href="products.html">Products &amp; Services</a></li>
+      <li><a href="sourcing.html">Responsible Sourcing</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="fcol-t">Categories</div>
+    <ul class="flinks">
+      <li><a href="products.html#workwear">Workwear</a></li>
+      <li><a href="products.html#sports">Sports &amp; Activewear</a></li>
+      <li><a href="products.html#fashion">Fashion &amp; Lifestyle</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="fcol-t">Compliance</div>
+    <ul class="flinks">
+      <li><a href="sourcing.html">Responsible Sourcing</a></li>
+      <li><a href="sourcing.html#certs">Certifications</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="fbot">
+  <span>© 2026 Signet Enterprise. All rights reserved.</span>
+  <span>Registered in Bangladesh &amp; Pakistan</span>
+</div>
+
+</body>
+</html>

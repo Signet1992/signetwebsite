@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Signet Enterprise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d0d0d;--cream:#f5f0e8;--warm:#faf8f4;--gold:#c8a96e;--slate:#4a5568;--border:rgba(13,13,13,.11)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--warm);color:var(--ink);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 56px;background:rgba(250,248,244,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--ink);text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-cta{background:var(--ink);color:var(--cream);padding:10px 26px;font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--gold);color:var(--ink)}
+.page-hero{padding:160px 80px 100px;background:var(--ink);color:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end}
+.ph-eyebrow{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.ph-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.ph-h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,4.5vw,4.2rem);font-weight:900;line-height:1.05;letter-spacing:-.02em}
+.ph-h1 em{font-style:italic;color:var(--gold)}
+.ph-right{padding-bottom:8px}
+.ph-intro{font-size:1.05rem;line-height:1.8;color:rgba(245,240,232,.65);margin-bottom:16px}
+.ph-intro-sub{font-size:.92rem;line-height:1.8;color:rgba(245,240,232,.45);margin-bottom:36px}
+.ph-stats{display:flex;gap:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.1)}
+.snum{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1;color:var(--cream)}
+.slbl{font-size:.76rem;color:rgba(245,240,232,.5);margin-top:4px}
+.eyebrow{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.sh2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin-bottom:24px}
+.sbody{font-size:.95rem;line-height:1.8;color:var(--slate);margin-bottom:28px}
+.flist{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px}
+.flist li{display:flex;align-items:flex-start;gap:12px;font-size:.88rem;line-height:1.5}
+.flist li::before{content:'→';color:var(--gold);flex-shrink:0}
+.btn-p{background:var(--ink);color:var(--cream);padding:15px 34px;font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:all .25s;display:inline-block}
+.btn-p:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px)}
+.infra{display:grid;grid-template-columns:1fr 1fr;min-height:80vh}
+.infra-vis{position:relative;overflow:hidden;background:#111}
+.infra-grid{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.ig{overflow:hidden}
+.ig img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.ig:hover img{transform:scale(1.07)}
+.infra-body{padding:100px 80px;display:flex;flex-direction:column;justify-content:center}
+.story{display:grid;grid-template-columns:1fr 1fr;min-height:75vh;background:var(--cream)}
+.story-vis{position:relative;overflow:hidden;background:#111}
+.story-vis img{width:100%;height:100%;object-fit:cover;opacity:.8}
+.story-body{padding:100px 80px;display:flex;flex-direction:column;justify-content:center}
+.approach{padding:120px 80px;background:var(--ink);color:var(--cream)}
+.approach-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.approach .sh2{color:var(--cream)}
+.approach .sbody{color:rgba(245,240,232,.6)}
+.approach .flist li{color:rgba(245,240,232,.85)}
+.approach .flist li::before{color:var(--gold)}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.stat-box{background:rgba(255,255,255,.04);border:1px solid rgba(200,169,110,.2);padding:36px 28px;transition:border-color .3s}
+.stat-box:hover{border-color:var(--gold)}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:8px}
+.stat-lbl{font-size:.78rem;color:rgba(245,240,232,.5);line-height:1.5}
+.network{padding:120px 80px;background:var(--warm)}
+.network-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.network-vis{position:relative;overflow:hidden;background:#111;min-height:500px}
+.network-vis img{width:100%;height:100%;object-fit:cover;opacity:.8}
+.net-points{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:8px}
+.net-point{background:var(--cream);padding:28px 24px;border-top:3px solid var(--border);transition:border-color .3s}
+.net-point:hover{border-color:var(--gold)}
+.net-point-text{font-size:.86rem;color:var(--slate);line-height:1.6;font-weight:500}
+.responsible{display:grid;grid-template-columns:1fr 1fr;min-height:55vh;background:var(--cream)}
+.resp-body{padding:100px 80px;display:flex;flex-direction:column;justify-content:center}
+.resp-vis{position:relative;overflow:hidden;background:#111}
+.resp-vis img{width:100%;height:100%;object-fit:cover;opacity:.7}
+.role{padding:120px 80px;background:var(--warm)}
+.role-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.role-points{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:0}
+.role-point{background:var(--cream);padding:32px 28px;border-left:3px solid var(--border);transition:border-color .3s}
+.role-point:hover{border-color:var(--gold)}
+.role-point-title{font-weight:600;font-size:.88rem;margin-bottom:6px;color:var(--ink)}
+.role-point-body{font-size:.82rem;color:var(--slate);line-height:1.6}
+.role-quote{background:var(--ink);padding:48px;margin-top:0}
+.rq-text{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;line-height:1.65;color:var(--cream);margin-bottom:20px}
+.rq-attr-name{font-size:.82rem;font-weight:600;color:var(--gold);letter-spacing:.04em}
+.rq-attr-role{font-size:.78rem;color:rgba(245,240,232,.45);margin-top:4px}
+.clients{padding:100px 80px;background:var(--ink);color:var(--cream)}
+.clients-hdr{text-align:center;max-width:600px;margin:0 auto 64px}
+.clients-hdr .sh2{color:var(--cream)}
+.clients-hdr .sbody{color:rgba(245,240,232,.5)}
+.brands-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+.brand-card{border:1px solid rgba(200,169,110,.18);padding:44px 24px;text-align:center;transition:border-color .4s,background .4s}
+.brand-card:hover{border-color:var(--gold);background:rgba(200,169,110,.06)}
+.brand-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cream);margin-bottom:10px}
+.brand-desc{font-size:.73rem;color:rgba(245,240,232,.4);letter-spacing:.06em;text-transform:uppercase;line-height:1.5}
+.cta-strip{background:var(--gold);padding:100px 80px;text-align:center}
+.cta-strip .sh2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;color:var(--ink);margin-bottom:24px;letter-spacing:-.02em}
+.cta-strip p{font-size:.95rem;color:rgba(13,13,13,.65);max-width:540px;margin:0 auto 36px;line-height:1.7}
+footer{background:#080808;color:rgba(245,240,232,.55);padding:80px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}
+.flogo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--cream);margin-bottom:16px;display:block;text-decoration:none}
+.flogo span{color:var(--gold)}
+.ftagline{font-size:.86rem;line-height:1.75;margin-bottom:28px}
+.faddr{font-size:.8rem;line-height:1.85}
+.fcol-t{font-size:.7rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--cream);margin-bottom:18px}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:10px}
+.flinks a{color:rgba(245,240,232,.45);font-size:.86rem;text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--gold)}
+.fbot{background:#080808;border-top:1px solid rgba(255,255,255,.06);padding:22px 80px;display:flex;justify-content:space-between;font-size:.76rem;color:rgba(245,240,232,.28)}
+@media(max-width:1024px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  .page-hero,.infra,.story,.approach-inner,.network-inner,.responsible,.role-inner{grid-template-columns:1fr}
+  .page-hero,.infra-body,.story-body,.approach,.network,.resp-body,.role,.clients,.cta-strip{padding:60px 28px}
+  .infra-vis,.story-vis,.resp-vis,.network-vis{height:60vw}
+  .stat-row,.net-points,.role-points,.brands-grid{grid-template-columns:1fr 1fr}
+  .role-quote{padding:36px 28px}
+  footer{grid-template-columns:1fr 1fr;padding:60px 28px}
+  .fbot{padding:20px 28px;flex-direction:column;gap:6px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Signet<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="about-v2.html" class="active">About</a></li>
+    <li><a href="products.html">Products &amp; Services</a></li>
+    <li><a href="sourcing.html">Responsible Sourcing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<section class="page-hero">
+  <div>
+    <div class="ph-eyebrow">About Signet</div>
+    <h1 class="ph-h1">Trusted to manage sourcing for global apparel brands <em>since 1992.</em></h1>
+  </div>
+  <div class="ph-right">
+    <p class="ph-intro">Since 1992, Signet has managed apparel production for global brands through its established factory network across Asia.</p>
+    <p class="ph-intro-sub">Supported by dedicated in-country sourcing, merchandising, and quality control teams, production is overseen at every stage — ensuring consistent quality, compliance, and reliable delivery. This integrated structure provides global brands with confidence in their supply chain.</p>
+    <div class="ph-stats">
+      <div><div class="snum">30+</div><div class="slbl">Years in operation</div></div>
+      <div><div class="snum">1992</div><div class="slbl">Founded in London</div></div>
+      <div><div class="snum">4</div><div class="slbl">In-country offices</div></div>
+      <div><div class="snum">20+</div><div class="slbl">Global markets served</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="infra">
+  <div class="infra-vis">
+    <div class="infra-grid">
+      <div class="ig"><img src="https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?w=800&q=85&fit=crop&crop=center" alt="Fabric measurement"></div>
+      <div class="ig"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=85&fit=crop&crop=center" alt="Textile fabric rolls"></div>
+      <div class="ig"><img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=800&q=85&fit=crop&crop=center" alt="Sewing machine operator"></div>
+      <div class="ig"><img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=85&fit=crop&crop=center" alt="Finished garments"></div>
+    </div>
+  </div>
+  <div class="infra-body">
+    <div class="eyebrow">Our Infrastructure</div>
+    <h2 class="sh2">On the ground where production happens.</h2>
+    <p class="sbody">Production across Signet's factory network is supported by permanent in-country operational teams based at the centre of Asia's key manufacturing regions.</p>
+    <p class="sbody">This presence ensures production is managed directly, providing transparency, accountability, and operational control throughout the production lifecycle.</p>
+    <ul class="flist">
+      <li>Dedicated sourcing and merchandising teams</li>
+      <li>Inline and final quality control oversight</li>
+      <li>Compliance and production monitoring</li>
+      <li>An established factory network developed over three decades</li>
+      <li>Real-time production visibility and reporting</li>
+    </ul>
+    <p class="sbody">This operational depth ensures consistency, reliability, and confidence in every order.</p>
+  </div>
+</section>
+
+<section class="story">
+  <div class="story-body">
+    <div class="eyebrow">Our Story</div>
+    <h2 class="sh2">Built on experience. Proven through production.</h2>
+    <p class="sbody">Signet was established in London in 1992 with a clear objective: to provide global apparel brands with a reliable and accountable sourcing partner.</p>
+    <p class="sbody">As global production expanded across Asia, Signet established permanent sourcing and quality control teams to manage production directly within its factory network.</p>
+    <p class="sbody">Over more than three decades, this production network has grown to support customers across workwear, sportswear, and fashion categories.</p>
+    <p class="sbody">Today, Signet manages production, quality, and compliance across its network — allowing customers to focus on their brand and market growth.</p>
+  </div>
+  <div class="story-vis">
+    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1000&q=85&fit=crop&crop=center" alt="Garment factory">
+  </div>
+</section>
+
+<section class="approach">
+  <div class="approach-inner">
+    <div>
+      <div class="eyebrow">Our Approach</div>
+      <h2 class="sh2">Quality and control at every stage.</h2>
+      <p class="sbody">Signet manages the full production lifecycle through its factory network, ensuring every stage operates to defined standards.</p>
+      <ul class="flist">
+        <li>Product development and sampling</li>
+        <li>Production planning and management</li>
+        <li>Inline and final quality control</li>
+        <li>Compliance oversight</li>
+        <li>Shipment coordination and delivery monitoring</li>
+      </ul>
+      <p class="sbody">Continuous operational oversight ensures issues are identified early and resolved efficiently — protecting quality and ensuring reliable delivery.</p>
+    </div>
+    <div>
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-num">30+</div><div class="stat-lbl">Years managing garment supply chains</div></div>
+        <div class="stat-box"><div class="stat-num">4</div><div class="stat-lbl">Dedicated in-country offices</div></div>
+        <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">Core product categories</div></div>
+        <div class="stat-box"><div class="stat-num">20+</div><div class="stat-lbl">Global markets served</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="network">
+  <div class="network-inner">
+    <div class="network-vis">
+      <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=1000&q=85&fit=crop&crop=center" alt="Production network">
+    </div>
+    <div>
+      <div class="eyebrow">Our Production Network</div>
+      <h2 class="sh2">Built over decades. Operated with accountability.</h2>
+      <p class="sbody">Signet's factory network has been developed over more than 30 years and represents established production capability across multiple apparel categories.</p>
+      <p class="sbody">Production across the network operates within Signet's sourcing, quality control, and compliance framework — providing stability and consistency through long-term operational relationships.</p>
+      <div class="net-points">
+        <div class="net-point"><div class="net-point-text">Consistent production standards</div></div>
+        <div class="net-point"><div class="net-point-text">Reliable quality performance</div></div>
+        <div class="net-point"><div class="net-point-text">Responsible manufacturing practices</div></div>
+        <div class="net-point"><div class="net-point-text">Professional operational management</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="responsible">
+  <div class="resp-body">
+    <div class="eyebrow">Responsible Production</div>
+    <h2 class="sh2">Embedded in how production operates.</h2>
+    <p class="sbody">Responsible sourcing operates as part of production management across Signet's factory network.</p>
+    <p class="sbody">Production is managed in accordance with recognised social and environmental standards, supported by in-country compliance oversight — ensuring production aligns with customer expectations and regulatory requirements.</p>
+    <a href="sourcing.html" class="btn-p" style="align-self:flex-start;margin-top:8px">Our Responsible Sourcing Standards</a>
+  </div>
+  <div class="resp-vis">
+    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=1000&q=85&fit=crop&crop=center" alt="Responsible garment production">
+  </div>
+</section>
+
+<section class="role">
+  <div class="role-inner">
+    <div>
+      <div class="eyebrow">Our Role Today</div>
+      <h2 class="sh2">Managing production for global brands.</h2>
+      <p class="sbody">Signet supports apparel brands across Europe and international markets, managing production across multiple product categories through its factory network.</p>
+      <p class="sbody">Over more than three decades, Signet has built a reputation for consistency, professionalism, and reliability.</p>
+      <div class="role-points">
+        <div class="role-point"><div class="role-point-title">Operational Control</div><div class="role-point-body">Direct management of production at every stage</div></div>
+        <div class="role-point"><div class="role-point-title">Quality Assurance</div><div class="role-point-body">In-country QC teams ensuring consistent standards</div></div>
+        <div class="role-point"><div class="role-point-title">Compliance Confidence</div><div class="role-point-body">Full compliance visibility and documentation support</div></div>
+        <div class="role-point"><div class="role-point-title">Supply Chain Transparency</div><div class="role-point-body">End-to-end visibility from factory to final shipment</div></div>
+      </div>
+    </div>
+    <div class="role-quote">
+      <p class="rq-text">"Signet manages production with a level of control and visibility that gives us complete confidence in our supply chain."</p>
+      <div class="rq-attr-name">Head of Sourcing</div>
+      <div class="rq-attr-role">European Workwear Brand</div>
+    </div>
+  </div>
+</section>
+
+<section class="clients">
+  <div class="clients-hdr">
+    <div class="eyebrow">Brands We've Supported</div>
+    <h2 class="sh2">Trusted by leading international retailers.</h2>
+    <p class="sbody">Over three decades, Signet has supported leading international retailers and apparel brands, delivering quality, reliability, and compliance at scale.</p>
+  </div>
+  <div class="brands-grid">
+    <div class="brand-card"><div class="brand-name">Next</div><div class="brand-desc">UK fashion &amp; homeware retailer</div></div>
+    <div class="brand-card"><div class="brand-name">TK Maxx</div><div class="brand-desc">Off-price fashion retailer</div></div>
+    <div class="brand-card"><div class="brand-name">Dunnes Stores</div><div class="brand-desc">Irish retail group</div></div>
+    <div class="brand-card"><div class="brand-name">Costco</div><div class="brand-desc">Global membership retailer</div></div>
+    <div class="brand-card"><div class="brand-name">Yours Clothing</div><div class="brand-desc">Plus-size fashion specialist</div></div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2 class="sh2">Partner with Signet.</h2>
+  <p>If you are looking for a sourcing partner with an established production network, operational infrastructure, and a commitment to quality, we would welcome the opportunity to support your business.</p>
+  <a href="contact.html" class="btn-p">Start a Conversation</a>
+</div>
+
+<footer>
+  <div>
+    <a href="index.html" class="flogo">Signet<span>.</span></a>
+    <p class="ftagline">Managing apparel production for global brands through its factory network in Asia since 1992.</p>
+    <p class="faddr">Head Office: House # 9/11 (1st to 5th Floor)<br>Road # 21, Nikunja-02<br>Dhaka-1229, Bangladesh</p>
+  </div>
+  <div>
+    <div class="fcol-t">Company</div>
+    <ul class="flinks">
+      <li><a href="about-v2.html">About Signet</a></li>
+      <li><a href="products.html">Products &amp; Services</a></li>
+      <li><a href="sourcing.html">Responsible Sourcing</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="fcol-t">Categories</div>
+    <ul class="flinks">
+      <li><a href="products.html#workwear">Workwear</a></li>
+      <li><a href="products.html#sports">Sports &amp; Activewear</a></li>
+      <li><a href="products.html#fashion">Fashion &amp; Lifestyle</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="fcol-t">Compliance</div>
+    <ul class="flinks">
+      <li><a href="sourcing.html">Responsible Sourcing</a></li>
+      <li><a href="sourcing.html#certs">Certifications</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="fbot">
+  <span>&copy; 2026 Signet Enterprise. All rights reserved.</span>
+  <span>Registered in Bangladesh &amp; Pakistan</span>
+</div>
+
+</body>
+</html>
