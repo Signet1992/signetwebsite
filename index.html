@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signet Enterprise — Global Garment Sourcing Partner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d0d0d;--cream:#f5f0e8;--warm:#faf8f4;--gold:#c8a96e;--slate:#4a5568;--border:rgba(13,13,13,.11)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--warm);color:var(--ink);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 56px;background:rgba(250,248,244,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--ink);text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:var(--cream);padding:10px 26px;font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--gold);color:var(--ink)}
+/* Hero */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:80px}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;font-size:.73rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,5vw,5rem);font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:28px}
+.hero-h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:1rem;line-height:1.75;color:var(--slate);max-width:440px;margin-bottom:48px}
+.hero-actions{display:flex;gap:16px;align-items:center}
+.btn-p{background:var(--ink);color:var(--cream);padding:15px 34px;font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:all .25s;display:inline-block}
+.btn-p:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px)}
+.btn-s{color:var(--ink);font-size:.86rem;font-weight:500;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px;transition:color .2s,border-color .2s}
+.btn-s:hover{color:var(--gold);border-color:var(--gold)}
+.hero-stats{display:flex;gap:40px;margin-top:64px;padding-top:40px;border-top:1px solid var(--border)}
+.snum{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1}
+.slbl{font-size:.76rem;color:var(--slate);margin-top:4px}
+.hero-right{position:relative;overflow:hidden;background:#111}
+.hero-right img{width:100%;height:100%;object-fit:cover;opacity:.82;transform:scale(1.04);transition:transform 8s ease}
+.hero-right:hover img{transform:scale(1)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,169,110,.25) 0%,transparent 55%);pointer-events:none}
+.hero-badge{position:absolute;bottom:40px;right:40px;background:var(--cream);padding:20px 24px;border-left:3px solid var(--gold);max-width:240px}
+.hb-text{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;line-height:1.4}
+.hb-sub{font-size:.7rem;color:var(--slate);margin-top:8px;letter-spacing:.06em;text-transform:uppercase}
+/* Trust bar */
+.trust-bar{background:var(--ink);color:var(--cream);padding:28px 80px;display:flex;align-items:center;gap:56px;flex-wrap:wrap}
+.t-lbl{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);white-space:nowrap;max-width:220px;line-height:1.6}
+.t-certs{display:flex;gap:36px;flex-wrap:wrap}
+.cert{display:flex;align-items:center;gap:8px;font-size:.8rem;color:rgba(245,240,232,.7)}
+.cert::before{content:'✓';color:var(--gold)}
+/* About */
+.about{display:grid;grid-template-columns:1fr 1fr;min-height:80vh}
+.about-vis{position:relative;overflow:hidden;background:#111}
+.about-grid{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.av{overflow:hidden}
+.av img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.av:hover img{transform:scale(1.07)}
+.about-body{padding:100px 80px;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.sh2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin-bottom:24px}
+.sbody{font-size:.95rem;line-height:1.8;color:var(--slate);margin-bottom:28px}
+.flist{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:36px}
+.flist li{display:flex;align-items:flex-start;gap:12px;font-size:.88rem;line-height:1.5}
+.flist li::before{content:'→';color:var(--gold);flex-shrink:0}
+/* Categories */
+.categories{padding:120px 80px;background:var(--cream)}
+.cats-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px}
+.cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.cat{position:relative;overflow:hidden;height:540px;cursor:pointer;background:#111}
+.cat img{width:100%;height:100%;object-fit:cover;opacity:.75;transform:scale(1.06);transition:opacity .5s,transform .7s ease}
+.cat:hover img{opacity:.45;transform:scale(1)}
+.cat-body{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:40px 34px;background:linear-gradient(to top,rgba(10,10,10,.93) 0%,transparent 52%)}
+.cat-tag{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
+.cat-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px}
+.cat-desc{font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.6;max-height:0;overflow:hidden;transition:max-height .4s ease}
+.cat:hover .cat-desc{max-height:80px}
+.cat-arrow{color:var(--gold);font-size:.78rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-top:18px;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.cat:hover .cat-arrow{opacity:1;transform:translateY(0)}
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(5,1fr);height:280px;gap:2px}
+.gimg{overflow:hidden;background:#111}
+.gimg img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .4s;filter:saturate(.75)}
+.gimg:hover img{transform:scale(1.1);filter:saturate(1.1)}
+/* Process */
+.process{padding:120px 80px;background:var(--warm)}
+.proc-hdr{text-align:center;margin-bottom:80px}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.proc-grid::after{content:'';position:absolute;top:32px;left:10%;right:10%;height:1px;background:var(--border);z-index:0}
+.pstep{text-align:center;padding:0 24px;position:relative;z-index:1}
+.step-n{width:64px;height:64px;background:var(--warm);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 28px;font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;transition:background .3s,color .3s,border-color .3s}
+.pstep:hover .step-n{background:var(--gold);border-color:var(--gold);color:#fff}
+.step-t{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:12px}
+.step-b{font-size:.84rem;color:var(--slate);line-height:1.7}
+/* Sustainability */
+.sus{background:var(--ink);color:var(--cream);display:grid;grid-template-columns:1fr 1fr;min-height:70vh}
+.sus-body{padding:100px 80px;display:flex;flex-direction:column;justify-content:center}
+.sus-eyebrow{color:var(--gold)}
+.sus-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,3rem);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin:20px 0 24px}
+.sus-p{color:rgba(245,240,232,.6);font-size:.95rem;line-height:1.8;margin-bottom:44px}
+.sus-link{color:var(--gold);font-size:.86rem;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(200,169,110,.4);padding-bottom:2px;transition:border-color .2s;display:inline-block}
+.sus-link:hover{border-color:var(--gold)}
+.sus-vis{position:relative;overflow:hidden}
+.sus-vis img{width:100%;height:100%;object-fit:cover;opacity:.55}
+.sus-vov{position:absolute;inset:0;background:linear-gradient(to right,var(--ink) 0%,transparent 45%)}
+/* Testimonial */
+.tstrip{background:var(--gold);padding:72px 80px;display:flex;align-items:center;justify-content:center;text-align:center}
+.tinner{max-width:680px}
+.qm{font-family:'Playfair Display',serif;font-size:5rem;line-height:.5;color:rgba(13,13,13,.15);margin-bottom:16px}
+.qt{font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;line-height:1.5;color:var(--ink);margin-bottom:20px}
+.qa{font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(13,13,13,.55)}
+/* CTA */
+.cta-strip{padding:120px 80px;background:var(--warm);text-align:center}
+.cta-strip .sh2{margin-bottom:20px}
+.cta-strip .sbody{max-width:560px;margin:0 auto 40px}
+/* Footer */
+footer{background:#080808;color:rgba(245,240,232,.55);padding:80px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}
+.flogo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--cream);margin-bottom:16px;display:block;text-decoration:none}
+.flogo span{color:var(--gold)}
+.ftagline{font-size:.86rem;line-height:1.75;margin-bottom:28px}
+.faddr{font-size:.8rem;line-height:1.85}
+.fcol-t{font-size:.7rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--cream);margin-bottom:18px}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:10px}
+.flinks a{color:rgba(245,240,232,.45);font-size:.86rem;text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--gold)}
+.fbot{background:#080808;border-top:1px solid rgba(255,255,255,.06);padding:22px 80px;display:flex;justify-content:space-between;font-size:.76rem;color:rgba(245,240,232,.28)}
+@media(max-width:1024px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  .hero,.about,.sus{grid-template-columns:1fr}
+  .hero-left{padding:60px 28px}
+  .hero-right,.about-vis,.sus-vis{height:60vw}
+  .cats-grid{grid-template-columns:1fr}
+  .cat{height:380px}
+  .proc-grid{grid-template-columns:1fr 1fr;gap:48px}
+  .categories,.process,.cta-strip,.sus-body{padding:80px 28px}
+  .about-body{padding:60px 28px}
+  footer{grid-template-columns:1fr 1fr;padding:60px 28px}
+  .fbot{padding:20px 28px;flex-direction:column;gap:6px}
+  .gallery{grid-template-columns:repeat(3,1fr);height:200px}
+  .trust-bar,.tstrip{padding:20px 28px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Signet<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="about-v2.html">About</a></li>
+    <li><a href="products.html">Products &amp; Services</a></li>
+    <li><a href="sourcing.html">Responsible Sourcing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Global Sourcing Partner · Since 1992</div>
+    <h1 class="hero-h1">Supply chains built on <em>precision</em> and trust.</h1>
+    <p class="hero-sub">Signet manages apparel production for global brands through its established factory network in Asia — providing full operational oversight from development through shipment.</p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn-p">Start a Sourcing Conversation</a>
+      <a href="about-v2.html" class="btn-s">Our Story</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="snum">30+</div><div class="slbl">Years in operation</div></div>
+      <div><div class="snum">4</div><div class="slbl">In-country offices</div></div>
+      <div><div class="snum">20+</div><div class="slbl">Global markets served</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=85&fit=crop&crop=center" alt="Garment production factory Asia">
+    <div class="hero-overlay"></div>
+    <div class="hero-badge">
+      <div class="hb-text">Trusted by global brands for over three decades.</div>
+      <div class="hb-sub">Asia · Since 1992</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <span class="t-lbl">Production managed within certified and audited facilities operating to internationally recognised standards</span>
+  <div class="t-certs">
+    <span class="cert">SEDEX</span>
+    <span class="cert">OEKO-TEX</span>
+    <span class="cert">GOTS</span>
+    <span class="cert">BSCI</span>
+    <span class="cert">ISO</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-vis">
+    <div class="about-grid">
+      <div class="av"><img src="https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?w=800&q=85&fit=crop&crop=center" alt="Fabric measurement and tailoring"></div>
+      <div class="av"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=85&fit=crop&crop=center" alt="Colourful textile fabric rolls"></div>
+      <div class="av"><img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=800&q=85&fit=crop&crop=center" alt="Sewing machine operator at work"></div>
+      <div class="av"><img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=85&fit=crop&crop=center" alt="Finished garments stacked and ready"></div>
+    </div>
+  </div>
+  <div class="about-body">
+    <div class="eyebrow">About Signet</div>
+    <h2 class="sh2">Three decades of production expertise.</h2>
+    <p class="sbody">Since 1992, Signet has managed apparel production through its factory network across Asia, supported by dedicated in-country sourcing, merchandising, and quality control teams.</p>
+    <p class="sbody">Production operates within a defined framework that ensures quality, compliance, and delivery standards are maintained at every stage. Our infrastructure provides global brands with confidence, transparency, and operational reliability.</p>
+    <ul class="flist">
+      <li>Established factory network developed over three decades</li>
+      <li>Dedicated in-country production and quality control teams</li>
+      <li>Responsible sourcing and compliance oversight</li>
+      <li>Long-term operational infrastructure across Asia</li>
+    </ul>
+    <a href="about-v2.html" class="btn-p">Learn More About Signet</a>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+  <div class="cats-hdr">
+    <div>
+      <div class="eyebrow">Production Capability</div>
+      <h2 class="sh2">Production capability across<br>key apparel sectors.</h2>
+      <p class="sbody" style="max-width:500px;margin-bottom:0">Production across our network supports a wide range of product categories.</p>
+    </div>
+    <a href="products.html" class="btn-s">View All Categories</a>
+  </div>
+  <div class="cats-grid">
+    <div class="cat">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=85&fit=crop&crop=center" alt="Safety workwear on a construction site">
+      <div class="cat-body">
+        <div class="cat-tag">Category 01</div>
+        <div class="cat-title">Workwear &amp;<br>Corporatewear</div>
+        <div class="cat-desc">Durable, compliant garments designed for performance and safety-critical environments.</div>
+        <span class="cat-arrow">Explore Category →</span>
+      </div>
+    </div>
+    <div class="cat">
+      <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=900&q=85&fit=crop&crop=center" alt="Athletes training in performance activewear">
+      <div class="cat-body">
+        <div class="cat-tag">Category 02</div>
+        <div class="cat-title">Sports &amp;<br>Activewear</div>
+        <div class="cat-desc">Technical apparel engineered for comfort, durability, and performance.</div>
+        <span class="cat-arrow">Explore Category →</span>
+      </div>
+    </div>
+    <div class="cat">
+      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=85&fit=crop&crop=center" alt="Fashion and lifestyle clothing editorial">
+      <div class="cat-body">
+        <div class="cat-tag">Category 03</div>
+        <div class="cat-title">Fashion &amp;<br>Lifestyle</div>
+        <div class="cat-desc">Commercially driven garments manufactured to meet global retail standards.</div>
+        <span class="cat-arrow">Explore Category →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="proc-hdr">
+    <div class="eyebrow">Production Process</div>
+    <h2 class="sh2">Managed at every stage.</h2>
+    <p class="sbody" style="max-width:580px;margin:0 auto">Production is managed through Signet's factory network using a structured, transparent process designed to ensure quality and reliability.</p>
+  </div>
+  <div class="proc-grid">
+    <div class="pstep">
+      <div class="step-n">01</div>
+      <div class="step-t">Development</div>
+      <p class="step-b">Product specifications, materials, and technical requirements are defined and prepared for production.</p>
+    </div>
+    <div class="pstep">
+      <div class="step-n">02</div>
+      <div class="step-t">Production Allocation</div>
+      <p class="step-b">Production is allocated within our factory network based on capability, product category, and compliance requirements.</p>
+    </div>
+    <div class="pstep">
+      <div class="step-n">03</div>
+      <div class="step-t">Production Management</div>
+      <p class="step-b">Production is monitored by in-country sourcing and quality control teams to ensure standards are maintained.</p>
+    </div>
+    <div class="pstep">
+      <div class="step-n">04</div>
+      <div class="step-t">Delivery</div>
+      <p class="step-b">Shipment and logistics are managed to ensure reliable and timely delivery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESPONSIBLE SOURCING -->
+<section class="sus" id="sus">
+  <div class="sus-body">
+    <div class="eyebrow sus-eyebrow">Responsible Sourcing</div>
+    <h2 class="sus-h2">Responsible production. Built into our network.</h2>
+    <p class="sus-p">Responsible sourcing is embedded in how production operates across Signet's factory network. Production is managed in accordance with recognised social and environmental standards, supported by in-country compliance and quality control teams.</p>
+    <p class="sus-p" style="margin-bottom:36px">This ensures production aligns with global regulatory and ethical requirements.</p>
+    <a href="sourcing.html" class="sus-link">Learn More About Responsible Sourcing →</a>
+  </div>
+  <div class="sus-vis">
+    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1000&q=85&fit=crop&crop=center" alt="Ethical garment factory environment">
+    <div class="sus-vov"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<div class="tstrip">
+  <div class="tinner">
+    <div class="qm">"</div>
+    <p class="qt">Signet manages production with a level of control and visibility that gives us complete confidence in our supply chain.</p>
+    <div class="qa">Head of Sourcing — European Workwear Brand</div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-strip" id="contact">
+  <div class="eyebrow" style="justify-content:center;display:flex">Partner With Signet</div>
+  <h2 class="sh2">Partner with Signet.</h2>
+  <p class="sbody">If you are looking for a sourcing partner with an established production network, operational infrastructure, and a commitment to quality, we would welcome the opportunity to support your business.</p>
+  <a href="contact.html" class="btn-p">Start a Sourcing Conversation</a>
+</section>
+
+<footer>
+  <div>
+    <a href="index.html" class="flogo">Signet<span>.</span></a>
+    <p class="ftagline">Managing apparel production for global brands through its factory network in Asia since 1992.</p>
+    <p class="faddr">Head Office: House # 9/11 (1st to 5th Floor)<br>Road # 21, Nikunja-02<br>Dhaka-1229, Bangladesh</p>
+  </div>
+  <div>
+    <div class="fcol-t">Company</div>
+    <ul class="flinks">
+      <li><a href="about-v2.html">About Signet</a></li>
+      <li><a href="products.html">Products &amp; Services</a></li>
+      <li><a href="sourcing.html">Responsible Sourcing</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="fcol-t">Categories</div>
+    <ul class="flinks">
+      <li><a href="products.html#workwear">Workwear</a></li>
+      <li><a href="products.html#sports">Sports &amp; Activewear</a></li>
+      <li><a href="products.html#fashion">Fashion &amp; Lifestyle</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="fcol-t">Compliance</div>
+    <ul class="flinks">
+      <li><a href="sourcing.html">Responsible Sourcing</a></li>
+      <li><a href="sourcing.html#certs">Certifications</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="fbot">
+  <span>© 2026 Signet Enterprise. All rights reserved.</span>
+  <span>Registered in Bangladesh &amp; Pakistan</span>
+</div>
+
+</body>
+</html>

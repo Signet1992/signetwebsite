@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsible Sourcing — Signet Enterprise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d0d0d;--cream:#f5f0e8;--warm:#faf8f4;--gold:#c8a96e;--slate:#4a5568;--border:rgba(13,13,13,.11)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--warm);color:var(--ink);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 56px;background:rgba(250,248,244,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--ink);text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-cta{background:var(--ink);color:var(--cream);padding:10px 26px;font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--gold);color:var(--ink)}
+.page-hero{min-height:65vh;background:var(--ink);color:var(--cream);display:grid;grid-template-columns:1fr 1fr;padding-top:80px}
+.ph-body{padding:80px 80px;display:flex;flex-direction:column;justify-content:center}
+.ph-eyebrow{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.ph-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.ph-h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:28px}
+.ph-h1 em{font-style:italic;color:var(--gold)}
+.ph-intro{font-size:1rem;line-height:1.8;color:rgba(245,240,232,.6);max-width:480px;margin-bottom:16px}
+.ph-intro-b{font-size:.9rem;line-height:1.8;color:rgba(245,240,232,.45);max-width:480px;font-style:italic}
+.ph-vis{position:relative;overflow:hidden;background:#111}
+.ph-vis img{width:100%;height:100%;object-fit:cover;opacity:.55}
+.ph-vov{position:absolute;inset:0;background:linear-gradient(to right,var(--ink) 0%,transparent 45%)}
+.eyebrow{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.sh2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin-bottom:24px}
+.sbody{font-size:.95rem;line-height:1.8;color:var(--slate);margin-bottom:28px}
+.flist{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.flist li{display:flex;align-items:flex-start;gap:12px;font-size:.88rem;line-height:1.5}
+.flist li::before{content:'→';color:var(--gold);flex-shrink:0}
+.framework{padding:100px 80px;background:var(--warm);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.framework-vis{position:relative;overflow:hidden;background:#111;min-height:500px}
+.framework-vis img{width:100%;height:100%;object-fit:cover;opacity:.75}
+.pillars-sec{background:var(--warm)}
+.pil-hdr{padding:80px 80px 60px;text-align:center;max-width:700px;margin:0 auto}
+.pil-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.pil{padding:60px 56px;border-top:3px solid var(--border);transition:border-color .3s}
+.pil:nth-child(odd){background:var(--cream)}
+.pil:nth-child(even){background:var(--warm)}
+.pil:hover{border-color:var(--gold)}
+.pil-icon{font-size:2rem;margin-bottom:20px}
+.pil-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:14px}
+.pil-body{font-size:.88rem;color:var(--slate);line-height:1.75;margin-bottom:20px}
+.practice{background:var(--ink);color:var(--cream);display:grid;grid-template-columns:1fr 1fr;min-height:60vh}
+.practice-body{padding:100px 80px;display:flex;flex-direction:column;justify-content:center}
+.practice .sh2{color:var(--cream)}
+.practice .sbody{color:rgba(245,240,232,.6)}
+.practice .flist li{color:rgba(245,240,232,.8)}
+.practice .flist li::before{color:var(--gold)}
+.practice-vis{position:relative;overflow:hidden;background:#111}
+.practice-vis img{width:100%;height:100%;object-fit:cover;opacity:.5}
+.practice-vov{position:absolute;inset:0;background:linear-gradient(to right,var(--ink) 0%,transparent 50%)}
+.certs{padding:120px 80px;background:var(--cream)}
+.certs-hdr{text-align:center;max-width:600px;margin:0 auto 80px}
+.certs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+.cert-card{background:var(--warm);border:1px solid var(--border);padding:40px 28px;text-align:center;transition:border-color .3s,background .3s}
+.cert-card:hover{border-color:var(--gold);background:#fff}
+.cert-badge{font-size:2.2rem;margin-bottom:16px}
+.cert-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.cert-body{font-size:.78rem;color:var(--slate);line-height:1.6}
+.network{padding:120px 80px;background:var(--warm)}
+.network-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.network-vis{position:relative;overflow:hidden;background:#111;min-height:480px}
+.network-vis img{width:100%;height:100%;object-fit:cover;opacity:.75}
+.compliance{padding:120px 80px;background:var(--ink);color:var(--cream)}
+.compliance-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.compliance .sh2{color:var(--cream)}
+.compliance .sbody{color:rgba(245,240,232,.6)}
+.compliance-cards{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.comp-card{border:1px solid rgba(200,169,110,.2);padding:32px 28px;transition:border-color .3s,background .3s}
+.comp-card:hover{border-color:var(--gold);background:rgba(200,169,110,.05)}
+.comp-icon{font-size:1.6rem;margin-bottom:12px}
+.comp-title{font-weight:600;font-size:.88rem;margin-bottom:6px;color:var(--cream)}
+.comp-body{font-size:.78rem;color:rgba(245,240,232,.45);line-height:1.6}
+.closing{padding:100px 80px;background:var(--gold);text-align:center}
+.closing .sh2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;color:var(--ink);margin-bottom:24px;letter-spacing:-.02em;max-width:700px;margin-left:auto;margin-right:auto}
+.closing p{font-size:.95rem;color:rgba(13,13,13,.65);max-width:580px;margin:0 auto;line-height:1.8}
+.cta-strip{background:var(--warm);padding:100px 80px;text-align:center}
+.cta-strip .sh2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--ink);margin-bottom:24px;letter-spacing:-.02em}
+.cta-strip p{font-size:.95rem;color:var(--slate);max-width:520px;margin:0 auto 36px;line-height:1.7}
+.btn-p{background:var(--ink);color:var(--cream);padding:15px 34px;font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:all .25s;display:inline-block}
+.btn-p:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px)}
+footer{background:#080808;color:rgba(245,240,232,.55);padding:80px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}
+.flogo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--cream);margin-bottom:16px;display:block;text-decoration:none}
+.flogo span{color:var(--gold)}
+.ftagline{font-size:.86rem;line-height:1.75;margin-bottom:28px}
+.faddr{font-size:.8rem;line-height:1.85}
+.fcol-t{font-size:.7rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--cream);margin-bottom:18px}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:10px}
+.flinks a{color:rgba(245,240,232,.45);font-size:.86rem;text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--gold)}
+.fbot{background:#080808;border-top:1px solid rgba(255,255,255,.06);padding:22px 80px;display:flex;justify-content:space-between;font-size:.76rem;color:rgba(245,240,232,.28)}
+@media(max-width:1024px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  .page-hero,.framework,.practice,.network-inner,.compliance-inner{grid-template-columns:1fr}
+  .ph-body,.framework,.practice-body,.certs,.network,.compliance,.cta-strip,.closing{padding:60px 28px}
+  .ph-vis,.framework-vis,.practice-vis,.network-vis{height:60vw}
+  .pil-grid,.certs-grid,.compliance-cards{grid-template-columns:1fr}
+  .pil{padding:40px 28px}
+  .pil-hdr{padding:60px 28px 40px}
+  footer{grid-template-columns:1fr 1fr;padding:60px 28px}
+  .fbot{padding:20px 28px;flex-direction:column;gap:6px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Signet<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="about-v2.html">About</a></li>
+    <li><a href="products.html">Products &amp; Services</a></li>
+    <li><a href="sourcing.html" class="active">Responsible Sourcing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="ph-body">
+    <div class="ph-eyebrow">Responsible Sourcing</div>
+    <h1 class="ph-h1">Responsible sourcing.<br><em>Embedded in our production network.</em></h1>
+    <p class="ph-intro">Since 1992, Signet has managed apparel production through its established factory network across Asia. Responsible sourcing is embedded within this production network and supported by dedicated in-country sourcing, production, and compliance teams.</p>
+    <p class="ph-intro-b">Responsible sourcing at Signet operates as part of how production is managed every day.</p>
+  </div>
+  <div class="ph-vis">
+    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1000&q=85&fit=crop&crop=center" alt="Ethical garment factory">
+    <div class="ph-vov"></div>
+  </div>
+</section>
+
+<!-- FRAMEWORK -->
+<section class="framework">
+  <div>
+    <div class="eyebrow">Responsible Production Framework</div>
+    <h2 class="sh2">Integrated across our factory network.</h2>
+    <p class="sbody">Responsible sourcing is integrated across our factory network and supported by defined standards, in-country presence, and continuous oversight.</p>
+    <p class="sbody">This framework focuses on four core areas — each embedded into how production is managed across our network on a daily basis.</p>
+  </div>
+  <div class="framework-vis">
+    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1000&q=85&fit=crop&crop=center" alt="Responsible garment manufacturing">
+  </div>
+</section>
+
+<!-- FOUR PILLARS -->
+<section class="pillars-sec">
+  <div class="pil-hdr">
+    <div class="eyebrow">Four Core Areas</div>
+    <h2 class="sh2">How we maintain responsible production standards.</h2>
+  </div>
+  <div class="pil-grid">
+    <div class="pil">
+      <div class="pil-icon">👷</div>
+      <div class="pil-title">Ethical Labour Standards</div>
+      <p class="pil-body">Production across our factory network operates in accordance with recognised social compliance standards. Working conditions are expected to meet established requirements, maintained through ongoing production oversight and long-term operational relationships.</p>
+      <ul class="flist">
+        <li>Safe and hygienic working environments</li>
+        <li>Responsible working hours</li>
+        <li>Fair wages</li>
+        <li>No forced labour</li>
+        <li>No child labour</li>
+      </ul>
+    </div>
+    <div class="pil">
+      <div class="pil-icon">🌿</div>
+      <div class="pil-title">Environmental Responsibility</div>
+      <p class="pil-body">Environmental responsibility is integrated into production across our network. Facilities operate in accordance with recognised environmental standards and maintain appropriate controls, supporting responsible and sustainable garment production.</p>
+      <ul class="flist">
+        <li>Responsible water and chemical management</li>
+        <li>Waste management practices</li>
+        <li>Environmental compliance systems</li>
+        <li>Continuous improvement programmes</li>
+      </ul>
+    </div>
+    <div class="pil">
+      <div class="pil-icon">🔍</div>
+      <div class="pil-title">Transparency Through Operational Oversight</div>
+      <p class="pil-body">Transparency is achieved through direct production oversight. Production visibility is maintained across our factory network through in-country sourcing, merchandising, and quality control teams — ensuring compliance requirements and responsible sourcing expectations are consistently upheld.</p>
+    </div>
+    <div class="pil">
+      <div class="pil-icon">📈</div>
+      <div class="pil-title">Continuous Improvement</div>
+      <p class="pil-body">Responsible sourcing is an ongoing operational priority. Production across our network continues to evolve alongside regulatory requirements, customer expectations, and industry standards. Long-term operational relationships support the consistent application and strengthening of responsible production practices.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IN PRACTICE -->
+<section class="practice">
+  <div class="practice-body">
+    <div class="eyebrow">Responsible Sourcing in Practice</div>
+    <h2 class="sh2">Delivered through daily operational involvement.</h2>
+    <p class="sbody">Responsible sourcing is delivered through daily operational involvement across our factory network — not through periodic audits alone.</p>
+    <ul class="flist">
+      <li>Factory approval prior to production</li>
+      <li>Continuous production oversight</li>
+      <li>In-country quality control presence</li>
+      <li>Production monitoring throughout manufacturing</li>
+      <li>Compliance visibility and documentation</li>
+    </ul>
+    <p class="sbody">This integrated structure ensures responsible sourcing is maintained throughout the production lifecycle.</p>
+  </div>
+  <div class="practice-vis">
+    <img src="https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?w=1000&q=85&fit=crop&crop=center" alt="In-country quality control">
+    <div class="practice-vov"></div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs" id="certs">
+  <div class="certs-hdr">
+    <div class="eyebrow">Certifications &amp; Standards</div>
+    <h2 class="sh2">Internationally recognised frameworks.</h2>
+    <p class="sbody">Production across our factory network operates within internationally recognised certification frameworks, depending on customer requirements.</p>
+  </div>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-badge">🔷</div>
+      <div class="cert-name">SEDEX</div>
+      <p class="cert-body">Supplier Ethical Data Exchange — supporting ethical trade and responsible sourcing across global supply chains.</p>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge">🌿</div>
+      <div class="cert-name">OEKO-TEX</div>
+      <p class="cert-body">Internationally recognised standard for textiles tested for harmful substances — ensuring product safety across all categories.</p>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge">🌱</div>
+      <div class="cert-name">GOTS</div>
+      <p class="cert-body">Global Organic Textile Standard — ensuring organic fibres are handled responsibly throughout the entire supply chain.</p>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge">✅</div>
+      <div class="cert-name">BSCI</div>
+      <p class="cert-body">Business Social Compliance Initiative — assessing and improving working conditions across global supply chains.</p>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge">⭐</div>
+      <div class="cert-name">ISO Standards</div>
+      <p class="cert-body">International Organisation for Standardisation frameworks — supporting quality management and operational consistency across our network.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FACTORY NETWORK -->
+<section class="network">
+  <div class="network-inner">
+    <div class="network-vis">
+      <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=1000&q=85&fit=crop&crop=center" alt="Garment factory production Asia">
+    </div>
+    <div>
+      <div class="eyebrow">Our Factory Network</div>
+      <h2 class="sh2">Developed over more than three decades.</h2>
+      <p class="sbody">Signet's factory network has been developed over more than three decades. This network represents established production capability across Asia, supported by permanent operational presence and long-term production relationships.</p>
+      <p class="sbody">Production across this network is managed through integrated sourcing, production, and quality control teams — ensuring consistency, accountability, and responsible sourcing standards.</p>
+      <p class="sbody">This structure provides global brands with confidence in both production and compliance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT COMPLIANCE -->
+<section class="compliance">
+  <div class="compliance-inner">
+    <div>
+      <div class="eyebrow">Supporting Client Compliance</div>
+      <h2 class="sh2">Production that supports your compliance requirements.</h2>
+      <p class="sbody">Production across our factory network supports internationally recognised compliance and regulatory standards — providing clients with the documentation and visibility they need.</p>
+    </div>
+    <div class="compliance-cards">
+      <div class="comp-card">
+        <div class="comp-icon">🔗</div>
+        <div class="comp-title">Supply Chain Transparency</div>
+        <p class="comp-body">Full visibility of production sources and factory partners across our network.</p>
+      </div>
+      <div class="comp-card">
+        <div class="comp-icon">📋</div>
+        <div class="comp-title">Compliance Visibility</div>
+        <p class="comp-body">Ongoing compliance oversight and reporting, aligned to customer requirements.</p>
+      </div>
+      <div class="comp-card">
+        <div class="comp-icon">🏭</div>
+        <div class="comp-title">Factory Disclosure</div>
+        <p class="comp-body">Factory disclosure capability to support customer due diligence and reporting obligations.</p>
+      </div>
+      <div class="comp-card">
+        <div class="comp-icon">📁</div>
+        <div class="comp-title">Documentation Support</div>
+        <p class="comp-body">Compliance documentation packages provided with every production run.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<div class="closing">
+  <h2 class="sh2">Responsible sourcing. Delivered through operational control.</h2>
+  <p>Responsible sourcing at Signet is embedded in how production operates. Through its established factory network in Asia and dedicated in-country teams, Signet provides responsible, transparent, and compliant sourcing for global apparel brands.</p>
+</div>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <h2 class="sh2">Partner with Signet.</h2>
+  <p>If you are looking for a sourcing partner with an established production network and integrated responsible sourcing, we would welcome the opportunity to support your business.</p>
+  <a href="contact.html" class="btn-p">Start a Sourcing Conversation</a>
+</div>
+
+<footer>
+  <div>
+    <a href="index.html" class="flogo">Signet<span>.</span></a>
+    <p class="ftagline">A global garment sourcing partner delivering quality-first products from Asia since 1992.</p>
+    <p class="faddr">Head Office: House # 9/11 (1st to 5th Floor)<br>Road # 21, Nikunja-02<br>Dhaka-1229, Bangladesh</p>
+  </div>
+  <div>
+    <div class="fcol-t">Company</div>
+    <ul class="flinks">
+      <li><a href="about-v2.html">About Signet</a></li>
+      <li><a href="products.html">Products &amp; Services</a></li>
+      <li><a href="sourcing.html">Responsible Sourcing</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="fcol-t">Categories</div>
+    <ul class="flinks">
+      <li><a href="products.html#workwear">Workwear</a></li>
+      <li><a href="products.html#sports">Sports &amp; Activewear</a></li>
+      <li><a href="products.html#fashion">Fashion &amp; Lifestyle</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="fcol-t">Compliance</div>
+    <ul class="flinks">
+      <li><a href="sourcing.html">Responsible Sourcing</a></li>
+      <li><a href="sourcing.html#certs">Certifications</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="fbot">
+  <span>© 2026 Signet Enterprise. All rights reserved.</span>
+  <span>Registered in Bangladesh &amp; Pakistan</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Signet Enterprise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d0d0d;--cream:#f5f0e8;--warm:#faf8f4;--gold:#c8a96e;--slate:#4a5568;--border:rgba(13,13,13,.11)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--warm);color:var(--ink);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 56px;background:rgba(250,248,244,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--ink);text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-cta{background:var(--ink);color:var(--cream);padding:10px 26px;font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--gold);color:var(--ink)}
+
+/* Hero */
+.page-hero{padding:160px 80px 100px;background:var(--ink);color:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end}
+.ph-eyebrow{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.ph-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.ph-h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,4.5vw,4.5rem);font-weight:900;line-height:1.05;letter-spacing:-.02em}
+.ph-h1 em{font-style:italic;color:var(--gold)}
+.ph-right{padding-bottom:8px}
+.ph-intro{font-size:1rem;line-height:1.8;color:rgba(245,240,232,.65);margin-bottom:16px}
+.ph-note{font-size:.86rem;line-height:1.7;color:rgba(245,240,232,.4);font-style:italic}
+
+/* Shared */
+.eyebrow{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.sh2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px}
+.sbody{font-size:.95rem;line-height:1.8;color:var(--slate);margin-bottom:24px}
+
+/* Main contact layout */
+.contact-main{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:80vh}
+
+/* Form side */
+.form-side{padding:80px;background:var(--warm);display:flex;flex-direction:column;justify-content:center}
+.form-intro{margin-bottom:44px}
+.form-intro p{font-size:.9rem;color:var(--slate);line-height:1.7;margin-top:12px}
+
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+input,select,textarea{border:1px solid var(--border);padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--ink);background:#fff;outline:none;transition:border-color .25s;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234a5568' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+textarea{resize:vertical;min-height:130px}
+.opt-label{font-size:.72rem;color:var(--slate);margin-left:2px}
+.submit-btn{background:var(--ink);color:var(--cream);padding:16px 40px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:all .25s;margin-top:8px;width:100%}
+.submit-btn:hover{background:var(--gold);color:var(--ink)}
+.form-privacy{font-size:.75rem;color:var(--slate);text-align:center;margin-top:14px;opacity:.7}
+
+/* Info side */
+.info-side{background:var(--ink);color:var(--cream);padding:80px;display:flex;flex-direction:column;justify-content:center}
+.info-side .eyebrow{color:var(--gold)}
+
+/* Direct contact */
+.direct-contact{margin-bottom:52px}
+.direct-contact h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cream);margin-bottom:24px}
+.contact-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px}
+.ci-icon{width:40px;height:40px;border:1px solid rgba(200,169,110,.3);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.ci-label{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(200,169,110,.7);margin-bottom:4px}
+.ci-value{font-size:.92rem;color:var(--cream)}
+.ci-value a{color:var(--cream);text-decoration:none;transition:color .2s}
+.ci-value a:hover{color:var(--gold)}
+
+/* Office presence */
+.office-presence{margin-bottom:52px}
+.office-presence h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cream);margin-bottom:8px}
+.office-presence p{font-size:.84rem;color:rgba(245,240,232,.5);line-height:1.6;margin-bottom:24px}
+.office-list{display:flex;flex-direction:column;gap:2px}
+.office-item{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:18px 20px;border-left:2px solid rgba(200,169,110,.2);transition:border-color .3s}
+.office-item:hover{border-color:var(--gold)}
+.oi-country{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);padding-top:2px}
+.oi-role{font-size:.84rem;color:rgba(245,240,232,.6);line-height:1.5}
+
+/* What happens next */
+.next-steps{background:var(--cream);padding:100px 80px}
+.next-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.steps-list{display:flex;flex-direction:column;gap:2px}
+.step-item{display:flex;align-items:flex-start;gap:20px;padding:28px 28px;background:var(--warm);border-top:2px solid var(--border);transition:border-color .3s}
+.step-item:hover{border-color:var(--gold)}
+.step-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold);flex-shrink:0;line-height:1}
+.step-text{padding-top:6px}
+.step-title{font-weight:600;font-size:.9rem;margin-bottom:5px}
+.step-desc{font-size:.84rem;color:var(--slate);line-height:1.6}
+.confidentiality{background:var(--ink);padding:28px 32px;border-left:3px solid var(--gold);margin-top:32px}
+.conf-text{font-size:.88rem;color:rgba(245,240,232,.7);line-height:1.7;font-style:italic}
+
+/* Closing CTA */
+.closing{padding:100px 80px;background:var(--gold);text-align:center}
+.closing h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,3rem);font-weight:700;color:var(--ink);margin-bottom:20px;letter-spacing:-.02em}
+.closing p{font-size:.95rem;color:rgba(13,13,13,.65);max-width:540px;margin:0 auto 12px;line-height:1.8}
+.closing p.sign-off{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:rgba(13,13,13,.55);margin-top:24px}
+
+/* Footer */
+footer{background:#080808;color:rgba(245,240,232,.55);padding:80px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}
+.flogo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--cream);margin-bottom:16px;display:block;text-decoration:none}
+.flogo span{color:var(--gold)}
+.ftagline{font-size:.86rem;line-height:1.75;margin-bottom:28px}
+.faddr{font-size:.8rem;line-height:1.85}
+.fcol-t{font-size:.7rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--cream);margin-bottom:18px}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:10px}
+.flinks a{color:rgba(245,240,232,.45);font-size:.86rem;text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--gold)}
+.fbot{background:#080808;border-top:1px solid rgba(255,255,255,.06);padding:22px 80px;display:flex;justify-content:space-between;font-size:.76rem;color:rgba(245,240,232,.28)}
+
+@media(max-width:1024px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  .page-hero,.contact-main,.next-inner{grid-template-columns:1fr}
+  .page-hero,.form-side,.info-side,.next-steps,.closing{padding:60px 28px}
+  .form-row{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr 1fr;padding:60px 28px}
+  .fbot{padding:20px 28px;flex-direction:column;gap:6px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Signet<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="about-v2.html">About</a></li>
+    <li><a href="products.html">Products &amp; Services</a></li>
+    <li><a href="sourcing.html">Responsible Sourcing</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div>
+    <div class="ph-eyebrow">Contact Us</div>
+    <h1 class="ph-h1">Start a sourcing <em>conversation.</em></h1>
+  </div>
+  <div class="ph-right">
+    <p class="ph-intro">Signet manages apparel production for global brands through its established factory network across Asia.</p>
+    <p class="ph-intro">If you are planning a new development, reviewing your sourcing strategy, or looking to expand production capability, we would welcome the opportunity to discuss your requirements.</p>
+    <p class="ph-note">Our team will respond promptly and handle your enquiry with complete confidentiality.</p>
+  </div>
+</section>
+
+<!-- MAIN CONTACT -->
+<div class="contact-main">
+
+  <!-- FORM -->
+  <div class="form-side">
+    <div class="form-intro">
+      <div class="eyebrow">Enquiry Form</div>
+      <h2 class="sh2">Tell us about your project.</h2>
+      <p>Please provide a brief overview of your requirements, and a member of our team will be in touch.</p>
+    </div>
+
+    <form action="https://formspree.io/f/mqedoqkg" method="POST">
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Your full name" required>
+      </div>
+      <div class="form-group">
+        <label for="company">Company Name</label>
+        <input type="text" id="company" name="company" placeholder="Your company" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number <span class="opt-label">(optional)</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="+44 or +880...">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Product Category</label>
+      <select id="category" name="category" required>
+        <option value="" disabled selected>Select a category</option>
+        <option value="workwear">Workwear</option>
+        <option value="sportswear">Sportswear</option>
+        <option value="fashion">Fashion</option>
+        <option value="outerwear">Outerwear</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Please describe your sourcing requirements, production volumes, and any relevant timelines..." required></textarea>
+    </div>
+
+    <button class="submit-btn" type="submit">Submit Enquiry</button>
+    <p class="form-privacy">All enquiries are handled professionally and with complete confidentiality.</p>
+
+    </form>
+  </div>
+
+  <!-- INFO -->
+  <div class="info-side">
+
+    <div class="direct-contact">
+      <div class="eyebrow">Or contact us directly.</div>
+      <h3 class="sh2" style="color:var(--cream);font-size:1.6rem">Get in touch.</h3>
+      <div class="contact-item">
+        <div class="ci-icon">✉</div>
+        <div>
+          <div class="ci-label">Email</div>
+          <div class="ci-value"><a href="/cdn-cgi/l/email-protection#7d14131b123d0e141a131809531e1210"><span class="__cf_email__" data-cfemail="d4bdbab2bb94a7bdb3bab1a0fab7bbb9">[email&#160;protected]</span></a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="office-presence">
+      <div class="eyebrow">Our Presence</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cream);margin-bottom:8px">On the ground where production happens.</h3>
+      <p style="font-size:.84rem;color:rgba(245,240,232,.5);line-height:1.6;margin-bottom:24px">Signet manages production through its factory network across Asia, supported by permanent in-country teams.</p>
+      <div class="office-list">
+        <div class="office-item">
+          <div class="oi-country">🇬🇧 United Kingdom</div>
+          <div class="oi-role">Client management and commercial operations</div>
+        </div>
+        <div class="office-item">
+          <div class="oi-country">🇭🇰 Hong Kong</div>
+          <div class="oi-role">Finance and commercial operations</div>
+        </div>
+        <div class="office-item">
+          <div class="oi-country">🇦🇪 UAE</div>
+          <div class="oi-role">Finance, commercial operations, and client management</div>
+        </div>
+        <div class="office-item">
+          <div class="oi-country">🇧🇩 Bangladesh</div>
+          <div class="oi-role">Sourcing, production management, and quality control</div>
+        </div>
+        <div class="office-item">
+          <div class="oi-country">🇵🇰 Pakistan</div>
+          <div class="oi-role">Sourcing, production management, and quality control</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:32px">
+      <div class="ci-label" style="margin-bottom:10px">Head Office</div>
+      <div style="font-size:.84rem;color:rgba(245,240,232,.55);line-height:1.9">
+        House # 9/11 (1st to 5th Floor)<br>
+        Road # 21, Nikunja-02<br>
+        Dhaka-1229, Bangladesh
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- WHAT HAPPENS NEXT -->
+<section class="next-steps">
+  <div class="next-inner">
+    <div>
+      <div class="eyebrow">What Happens Next</div>
+      <h2 class="sh2">A straightforward process.</h2>
+      <p class="sbody">Once we receive your enquiry, our sourcing team will review your requirements and respond promptly to discuss your project in more detail.</p>
+      <div class="confidentiality">
+        <p class="conf-text">All enquiries are handled professionally and confidentially. Your information will not be shared with any third party.</p>
+      </div>
+    </div>
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num">01</div>
+        <div class="step-text">
+          <div class="step-title">Your requirements are reviewed</div>
+          <div class="step-desc">Your enquiry is reviewed by our sourcing team, who will assess your production requirements and identify the most suitable approach.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">02</div>
+        <div class="step-text">
+          <div class="step-title">We respond to discuss your project</div>
+          <div class="step-desc">A member of our team will be in touch to discuss your project in more detail and answer any initial questions.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">03</div>
+        <div class="step-text">
+          <div class="step-title">Production capability and next steps outlined</div>
+          <div class="step-desc">We will outline relevant production capability within our network and agree the most appropriate next steps for your sourcing requirements.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<div class="closing">
+  <h2>Partner with Signet.</h2>
+  <p>We support global brands with reliable, transparent, and responsible apparel sourcing.</p>
+  <p class="sign-off">We look forward to hearing from you.</p>
+</div>
+
+<footer>
+  <div>
+    <a href="index.html" class="flogo">Signet<span>.</span></a>
+    <p class="ftagline">Managing apparel production for global brands through its factory network in Asia since 1992.</p>
+    <p class="faddr">Head Office: House # 9/11 (1st to 5th Floor)<br>Road # 21, Nikunja-02<br>Dhaka-1229, Bangladesh</p>
+  </div>
+  <div>
+    <div class="fcol-t">Company</div>
+    <ul class="flinks">
+      <li><a href="about-v2.html">About Signet</a></li>
+      <li><a href="products.html">Products &amp; Services</a></li>
+      <li><a href="sourcing.html">Responsible Sourcing</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="fcol-t">Categories</div>
+    <ul class="flinks">
+      <li><a href="products.html#workwear">Workwear</a></li>
+      <li><a href="products.html#sports">Sports &amp; Activewear</a></li>
+      <li><a href="products.html#fashion">Fashion &amp; Lifestyle</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="fcol-t">Compliance</div>
+    <ul class="flinks">
+      <li><a href="sourcing.html">Responsible Sourcing</a></li>
+      <li><a href="sourcing.html#certs">Certifications</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="fbot">
+  <span>© 2026
