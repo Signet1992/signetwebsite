@@ -6,156 +6,190 @@
 <title>Signet Enterprises Limited — The Apparel Production Partner</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0D1B2A; --navy-mid:#162335; --navy-light:#1E304A;
-  --gold:#b8975a; --gold-light:#d4ac6e;
-  --cream:#F7F4EE; --cream-dark:#EDE9E0;
-  --white:#fff; --mid:#3D4F62; --muted:#7A8FA6;
-  --border:rgba(13,27,42,0.08);
+  --navy:#16223a;--navy-mid:#1e2f4d;--navy-light:#243660;
+  --gold:#d4a843;--gold-light:#e8c068;--gold-dim:rgba(212,168,67,.15);
+  --cream:#f5f0e8;--cream-mid:#e8e2d8;--cream-soft:#f0ece6;
+  --charcoal:#1e1c1a;--warm:#8a857e;
+  --border-dark:rgba(255,255,255,.1);--border-light:rgba(30,28,26,.1);
+  --text-bright:rgba(255,255,255,.92);--text-mid:rgba(255,255,255,.65);--text-soft:rgba(255,255,255,.4);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy);overflow-x:hidden}
+body{font-family:"DM Sans",sans-serif;background:var(--cream-soft);color:var(--charcoal);overflow-x:hidden}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;border-bottom:1px solid rgba(255,255,255,.06)}
-.logo{font-family:'DM Sans',sans-serif;font-size:22px;font-weight:300;color:var(--white);letter-spacing:.04em;text-decoration:none}
-.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
-.nav-links a{padding:8px 14px;font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--white)}
-.nav-cta{background:var(--gold);color:var(--navy)!important;padding:10px 22px;font-weight:500!important;margin-left:8px}
-.nav-cta:hover{background:var(--gold-light)!important}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 60px;background:rgba(22,34,58,.98);backdrop-filter:blur(16px);border-bottom:1px solid rgba(212,168,67,.2)}
+.nav-logo img{height:28px;width:auto;display:block}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mid);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--navy);padding:10px 26px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .2s;border-radius:2px}
+.nav-cta:hover{background:var(--gold-light)}
 
 /* HERO */
-.hero{background:var(--navy);padding:120px 5vw 90px;position:relative;overflow:hidden;min-height:580px;display:flex;align-items:center}
-.hero-bg{position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 60px,rgba(184,151,90,.025) 60px,rgba(184,151,90,.025) 61px)}
-.hero-img{position:absolute;right:0;top:0;bottom:0;width:50%;object-fit:cover;opacity:.75;filter:none}
-.hero-content{position:relative;z-index:1;max-width:620px}
-.hero-eyebrow{font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;display:flex;align-items:center;gap:12px}
-.hero-eyebrow::before{content:'';width:36px;height:1px;background:var(--gold)}
-.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,68px);font-weight:400;line-height:1.08;color:var(--white);margin-bottom:28px}
-.hero-h1 em{font-style:italic;color:var(--gold)}
-.hero-desc{font-size:15px;color:rgba(255,255,255,.58);max-width:520px;line-height:1.85;margin-bottom:40px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn-gold{background:var(--gold);color:var(--navy);padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .2s}
+.hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;padding-top:66px;background:var(--navy);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(212,168,67,.08) 0%,transparent 60%)}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;position:relative;z-index:1}
+.hero-eyebrow{font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:"";width:24px;height:2px;background:var(--gold)}
+.hero-h1{font-family:"Playfair Display",serif;font-size:clamp(2.8rem,4.5vw,5rem);font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--text-bright);margin-bottom:8px}
+.hero-h1 em{font-style:italic;color:var(--gold);font-weight:400;display:block;margin-top:4px}
+.hero-sub{font-size:.95rem;line-height:1.8;color:var(--text-mid);max-width:460px;margin:24px 0 36px;font-weight:300}
+.hero-cta-row{display:flex;align-items:center;gap:24px;margin-bottom:52px}
+.btn-gold{background:var(--gold);color:var(--navy);padding:14px 32px;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .2s;display:inline-block;border-radius:2px}
 .btn-gold:hover{background:var(--gold-light)}
-.btn-outline{background:transparent;color:rgba(255,255,255,.65);padding:13px 32px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.2);transition:all .2s}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.btn-ghost{color:var(--text-mid);font-size:.75rem;font-weight:500;text-decoration:none;letter-spacing:.06em;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:all .2s}
+.btn-ghost:hover{color:var(--gold);border-color:var(--gold)}
+.hero-trust{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06)}
+.trust-item{padding:20px 16px;background:rgba(22,34,58,.8);text-align:center;border-top:2px solid rgba(212,168,67,.3)}
+.trust-n{font-family:"Playfair Display",serif;font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:4px}
+.trust-l{font-size:.62rem;color:var(--text-soft);letter-spacing:.12em;text-transform:uppercase}
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;opacity:.6;display:block}
+.hero-right::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--navy) 0%,transparent 40%)}
 
-/* STATS */
-.stats{background:#0a1520;padding:0 5vw;display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:28px 20px;text-align:center;border-right:1px solid rgba(184,151,90,.12)}
-.stat:last-child{border-right:none}
-.stat-n{font-family:'Playfair Display',serif;font-size:44px;font-weight:400;color:var(--gold);line-height:1;display:block}
-.stat-l{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-top:7px;display:block}
+/* SHARED */
+.eyebrow{font-size:.65rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:18px;height:2px;background:var(--gold)}
+.sh2{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,3.2vw,3.2rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;color:var(--charcoal);margin-bottom:20px}
+.sh2 em{font-style:italic;color:var(--gold);font-weight:400}
+.sh2-light{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,3.2vw,3.2rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;color:var(--text-bright);margin-bottom:20px}
+.sh2-light em{font-style:italic;color:var(--gold);font-weight:400}
+.sbody{font-size:.9rem;line-height:1.8;color:var(--warm);margin-bottom:16px;font-weight:300}
+.sbody-bright{font-size:.9rem;line-height:1.8;color:var(--text-mid);margin-bottom:16px;font-weight:300}
 
-/* SECTIONS */
-.sec{padding:5.5rem 5vw}
-.sec-white{background:var(--white)}
-.sec-cream{background:var(--cream)}
-.sec-navy{background:var(--navy);color:var(--white)}
-.sec-dark{background:#0a1520;color:var(--white)}
-.sec-char{background:#111d2a;color:var(--white)}
-.sec-label{font-size:10px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.sec-label::before{content:'';width:28px;height:1px;background:var(--gold)}
-.sec-h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,48px);font-weight:400;line-height:1.12;margin-bottom:20px}
-.sec-navy .sec-h2,.sec-dark .sec-h2,.sec-char .sec-h2{color:var(--white)}
-.sec-cream .sec-h2,.sec-white .sec-h2{color:var(--navy)}
-.sec-h2 em{font-style:italic;color:var(--gold)}
-.sec-lead{font-size:14.5px;line-height:1.85;max-width:580px}
-.sec-cream .sec-lead,.sec-white .sec-lead{color:var(--mid)}
-.sec-navy .sec-lead,.sec-dark .sec-lead,.sec-char .sec-lead{color:rgba(255,255,255,.52)}
+/* WHY SIGNET */
+.why{padding:90px 80px;background:var(--cream-soft)}
+.why-intro{max-width:700px;margin-bottom:60px}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.why-card{background:var(--cream-mid);padding:40px 32px;border-top:3px solid var(--border-light);transition:border-color .3s,background .2s}
+.why-card:hover{border-color:var(--gold);background:var(--cream)}
+.why-icon{font-size:1.6rem;margin-bottom:16px;line-height:1}
+.why-title{font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--charcoal);margin-bottom:10px}
+.why-body{font-size:.84rem;line-height:1.7;color:var(--warm);font-weight:300}
 
-/* WHY GRID */
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border:1px solid var(--border);margin-top:3rem}
-.why-c{background:var(--white);padding:2.25rem 2rem}
-.why-icon{font-size:22px;margin-bottom:.85rem}
-.why-t{font-size:12.5px;font-weight:500;color:var(--navy);margin-bottom:.55rem}
-.why-d{font-size:13px;color:var(--mid);line-height:1.8}
+/* HOW WE WORK */
+.how{padding:90px 80px;background:var(--navy)}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:52px}
+.how-step{background:rgba(255,255,255,.04);padding:40px 28px;border-top:3px solid rgba(212,168,67,.25);transition:background .2s,border-color .3s;position:relative}
+.how-step:hover{background:rgba(212,168,67,.06);border-color:var(--gold)}
+.how-step-num{font-family:"Playfair Display",serif;font-size:3rem;font-weight:700;color:rgba(212,168,67,.15);line-height:1;margin-bottom:12px}
+.how-step-title{font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.how-step-body{font-size:.82rem;line-height:1.7;color:var(--text-mid);font-weight:300}
+.how-arrow{position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:rgba(212,168,67,.3);font-size:1.2rem;z-index:1}
 
-/* PROCESS */
-.proc-wrap{margin-top:3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(184,151,90,.18)}
-.proc-c{padding:2.25rem 2rem;border-right:1px solid rgba(184,151,90,.18);position:relative}
-.proc-c:last-child{border-right:none}
-.proc-n{font-family:'Playfair Display',serif;font-size:38px;font-weight:400;color:var(--gold);margin-bottom:.85rem;line-height:1;opacity:.8}
-.proc-t{font-size:12px;font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.85);margin-bottom:.6rem}
-.proc-d{font-size:12.5px;color:rgba(255,255,255,.48);line-height:1.75}
+/* SECTORS */
+.sectors{padding:90px 80px;background:var(--cream-mid)}
+.sectors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:52px}
+.sector-card{background:var(--cream-soft);padding:44px 36px;border-top:3px solid var(--border-light);transition:border-color .3s,background .2s}
+.sector-card:hover{border-color:var(--gold);background:var(--cream)}
+.sector-num{font-family:"Playfair Display",serif;font-size:2.8rem;font-weight:700;color:rgba(212,168,67,.15);line-height:1;margin-bottom:12px}
+.sector-name{font-family:"Playfair Display",serif;font-size:1.4rem;font-weight:700;color:var(--charcoal);margin-bottom:8px}
+.sector-tag{font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
+.sector-body{font-size:.82rem;line-height:1.7;color:var(--warm);font-weight:300}
+.sector-list{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:7px}
+.sector-list li{font-size:.78rem;color:var(--warm);display:flex;align-items:flex-start;gap:8px;line-height:1.4}
+.sector-list li::before{content:"—";color:var(--gold);flex-shrink:0}
 
-/* ══ SECTORS — 4 cards ══ */
-.sectors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);border:1px solid var(--border);margin-top:3rem}
-.sector-c{background:var(--white);padding:2.5rem 2rem;position:relative;overflow:hidden;transition:background .2s}
-.sector-c:hover{background:var(--cream)}
-.sector-num{font-family:'Playfair Display',serif;font-size:52px;font-weight:400;color:rgba(184,151,90,.12);position:absolute;top:1rem;right:1.25rem;line-height:1;user-select:none}
-.sector-label{font-size:9px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
-.sector-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:var(--navy);margin-bottom:.4rem;line-height:1.2}
-.sector-sub{font-size:11px;color:var(--muted);margin-bottom:1.25rem;font-style:italic}
-.sector-list{list-style:none;display:flex;flex-direction:column;gap:.55rem}
-.sector-list li{font-size:12.5px;color:var(--mid);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
-.sector-list li::before{content:'—';color:var(--gold);flex-shrink:0;margin-top:1px}
-.sector-divider{height:3px;background:var(--gold);width:32px;margin-bottom:1.25rem}
-.sector-cta{display:block;text-align:center;margin-top:3rem}
-.sector-cta a{display:inline-block;background:var(--gold);color:var(--navy);padding:13px 36px;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s}
-.sector-cta a:hover{background:var(--gold-light)}
-
-/* QA */
-.qa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.04);margin-top:3rem}
-.qa-c{padding:2.25rem 2rem;background:rgba(255,255,255,.04);border:1px solid rgba(184,151,90,.1)}
-.qa-stage{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
-.qa-t{font-size:15px;font-weight:500;color:var(--white);margin-bottom:.85rem}
-.qa-d{font-size:13px;color:rgba(255,255,255,.48);line-height:1.75}
-.qa-sub{font-size:13px;color:rgba(255,255,255,.55);line-height:1.8;margin-top:1.5rem;margin-bottom:2rem;max-width:640px}
-.qa-icons{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2rem}
-.qa-icon-c{background:rgba(255,255,255,.04);padding:1.25rem;border:1px solid rgba(184,151,90,.08)}
-.qa-icon{font-size:20px;margin-bottom:.5rem}
-.qa-icon-t{font-size:12px;font-weight:500;color:rgba(255,255,255,.65)}
+/* QA SECTION */
+.qa{padding:90px 80px;background:var(--navy-mid)}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:52px}
+.qa-process{display:flex;flex-direction:column;gap:2px}
+.qa-step{padding:28px 32px;background:rgba(255,255,255,.05);border-left:3px solid rgba(212,168,67,.3);transition:border-color .3s,background .2s}
+.qa-step:hover{border-color:var(--gold);background:rgba(212,168,67,.05)}
+.qa-step-label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.qa-step-title{font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:6px}
+.qa-step-body{font-size:.82rem;line-height:1.65;color:var(--text-mid);font-weight:300}
+.qa-points{display:flex;flex-direction:column;gap:16px;margin-top:8px}
+.qa-point{display:flex;gap:16px;align-items:flex-start;padding:20px 24px;background:rgba(255,255,255,.04)}
+.qa-point-icon{font-size:1.2rem;flex-shrink:0;margin-top:2px}
+.qa-point-title{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.qa-point-body{font-size:.8rem;line-height:1.6;color:var(--text-mid);font-weight:300}
 
 /* RESPONSIBLE */
-.resp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(255,255,255,.04);margin-top:2.5rem}
-.resp-c{padding:2rem;background:rgba(255,255,255,.04);border:1px solid rgba(184,151,90,.08)}
-.resp-t{font-size:14px;font-weight:500;color:var(--white);margin-bottom:.65rem}
-.resp-d{font-size:13px;color:rgba(255,255,255,.48);line-height:1.75}
-.certs{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
-.cert{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,151,90,.3);padding:5px 12px}
+.responsible{padding:90px 80px;background:var(--cream-soft)}
+.resp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:52px}
+.resp-card{background:var(--cream-mid);padding:36px 32px;border-top:2px solid var(--border-light);transition:border-color .3s}
+.resp-card:hover{border-color:var(--gold)}
+.resp-title{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--charcoal);margin-bottom:10px}
+.resp-body{font-size:.82rem;line-height:1.7;color:var(--warm);font-weight:300}
+.certs-strip{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+.cert-badge{padding:8px 16px;background:var(--cream-mid);border:1px solid rgba(212,168,67,.3);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--charcoal)}
 
 /* OFFICES */
-.offices-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--border);border:1px solid var(--border);margin-top:2.5rem}
-.office-c{background:var(--white);padding:1.75rem 1.5rem;text-align:center}
-.office-country{font-size:14px;font-weight:500;color:var(--navy);margin-bottom:5px}
-.office-role{font-size:11.5px;color:var(--muted);line-height:1.5}
+.offices{padding:80px;background:var(--navy)}
+.offices-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:48px}
+.office-card{background:rgba(255,255,255,.04);padding:28px 20px;border-top:2px solid rgba(212,168,67,.2);transition:background .2s,border-color .3s}
+.office-card:hover{background:rgba(212,168,67,.06);border-color:var(--gold)}
+.office-city{font-family:"Playfair Display",serif;font-size:1rem;font-weight:700;color:var(--text-bright);margin-bottom:6px}
+.office-role{font-size:.7rem;color:var(--text-soft);line-height:1.5;font-weight:300}
 
-/* CONTACT */
-.contact-inner{max-width:560px}
-.contact-email{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:rgba(255,255,255,.75);margin-top:1.5rem;display:flex;align-items:center;gap:12px}
-.contact-email::before{content:'✉';font-size:18px;color:var(--gold)}
+/* CONTACT BAND */
+.contact-band{padding:80px;background:var(--navy-light);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.contact-links{display:flex;flex-direction:column;gap:16px;margin-top:28px}
+.contact-link{display:flex;align-items:center;gap:16px;padding:16px 20px;background:rgba(255,255,255,.05);text-decoration:none;transition:background .2s;border-left:3px solid transparent;transition:all .2s}
+.contact-link:hover{background:rgba(212,168,67,.08);border-color:var(--gold)}
+.contact-link-icon{font-size:1.2rem;flex-shrink:0}
+.contact-link-label{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.contact-link-val{font-size:.88rem;color:var(--text-mid);font-weight:300}
+.contact-quote blockquote{font-family:"Playfair Display",serif;font-size:clamp(1.1rem,1.8vw,1.5rem);font-style:italic;color:var(--text-bright);line-height:1.6;margin-bottom:16px;border-left:3px solid var(--gold);padding-left:24px}
+.contact-quote cite{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);padding-left:24px}
 
 /* FOOTER */
-footer{background:#060d14;padding:4rem 5vw 2rem}
-.footer-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.06)}
-.footer-brand{font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:var(--white);margin-bottom:6px}
-.footer-sub{font-size:11px;color:rgba(255,255,255,.28);letter-spacing:.06em;margin-bottom:1rem}
-.footer-desc{font-size:12.5px;color:rgba(255,255,255,.32);line-height:1.75;max-width:260px}
-.footer-col-t{font-size:9px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:.55rem}
-.footer-links a{font-size:12.5px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:var(--gold)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:11px;color:rgba(255,255,255,.2)}
+footer{background:#1a2a40;padding:72px 80px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px}
+.fcol-t{font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(212,168,67,1);margin-bottom:16px}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:9px;color:rgba(255,255,255,.65)}
+.flinks a{color:rgba(255,255,255,.75);font-size:.82rem;text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--gold)}
+.ftagline{font-size:.82rem;line-height:1.8;margin-bottom:20px;color:rgba(255,255,255,.7);font-weight:300}
+.faddr{font-size:.74rem;line-height:1.9;color:rgba(255,255,255,.65)}
+.fbot{background:#122033;border-top:1px solid rgba(255,255,255,.15);padding:20px 80px;display:flex;justify-content:space-between;font-size:.7rem;color:rgba(255,255,255,.55)}
 
-/* RESPONSIVE */
 @media(max-width:1024px){
-  .sectors-grid{grid-template-columns:repeat(2,1fr)}
-  .proc-wrap{grid-template-columns:repeat(2,1fr)}
-  .proc-c:nth-child(2){border-right:none}
-  .proc-c:nth-child(3){border-top:1px solid rgba(184,151,90,.18)}
+  nav{padding:16px 24px}.nav-links{display:none}
+  .hero{grid-template-columns:1fr;min-height:auto}.hero-left{padding:100px 28px 60px}.hero-right{height:300px}
+  .hero-trust{grid-template-columns:repeat(2,1fr)}
+  .why{padding:72px 28px}.why-grid{grid-template-columns:1fr}
+  .how{padding:72px 28px}.how-steps{grid-template-columns:1fr 1fr}
+  .sectors{padding:72px 28px}.sectors-grid{grid-template-columns:1fr 1fr}
+  .qa{padding:72px 28px}.qa-grid{grid-template-columns:1fr;gap:40px}
+  .responsible{padding:72px 28px}.resp-grid{grid-template-columns:1fr}
+  .offices{padding:60px 28px}.offices-grid{grid-template-columns:1fr 1fr}
+  .contact-band{grid-template-columns:1fr;padding:60px 28px;gap:48px}
+  footer{grid-template-columns:1fr 1fr;padding:60px 28px}.fbot{padding:20px 28px;flex-direction:column;gap:6px}
 }
-@media(max-width:768px){
-  .why-grid,.sectors-grid,.qa-grid,.resp-grid,.offices-grid,.footer-top{grid-template-columns:1fr}
-  .proc-wrap{grid-template-columns:1fr}
-  .proc-c{border-right:none;border-bottom:1px solid rgba(184,151,90,.18)}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .stat:nth-child(2){border-right:none}
-  .nav-links{display:none}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:rgba(240,236,230,.7);transition:all .3s;display:block}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(22,34,58,.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.1rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,236,230,.7);text-decoration:none;transition:color .2s}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--gold)}
+.mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;cursor:pointer;font-size:1.4rem;color:rgba(240,236,230,.5);line-height:1}
+@media(max-width:1024px){.hamburger{display:flex}}
+@media(max-width:480px){
+  nav{padding:14px 20px}
+  .hero-h1,.page-hero-h1{font-size:2.2rem}
+  .hero-left{padding:90px 20px 52px}
+  .hero-trust{grid-template-columns:1fr 1fr}
+  .why{padding:52px 20px}.why-grid{grid-template-columns:1fr}
+  .how{padding:52px 20px}.how-steps{grid-template-columns:1fr}
+  .sectors{padding:52px 20px}.sectors-grid{grid-template-columns:1fr 1fr}
+  .qa{padding:52px 20px}.qa-grid{grid-template-columns:1fr}
+  .responsible{padding:52px 20px}.resp-grid{grid-template-columns:1fr}
+  .offices{padding:52px 20px}.offices-grid{grid-template-columns:1fr}
+  .contact-band{padding:52px 20px}
+  .intro{padding:52px 20px}
+  .values-section{padding:52px 20px}.values-grid{grid-template-columns:1fr}
+  .page-hero-content{padding:90px 20px 52px}
+  .sector-block{grid-template-columns:1fr!important}
+  .sector-vis{height:260px}
+  footer{grid-template-columns:1fr;padding:48px 20px}
+  .fbot{padding:16px 20px;flex-direction:column;gap:6px}
 }
 </style>
 </head>
@@ -163,80 +197,123 @@ footer{background:#060d14;padding:4rem 5vw 2rem}
 
 <!-- NAV -->
 <nav>
-  <a href="https://signetent.org/" class="logo">signet</a>
+  <a href="index.html"><img src="data:image/png;base64,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" alt="Signet Enterprises Limited" style="height:28px;width:auto;display:block"></a>
   <ul class="nav-links">
-    <li><a href="https://signetent.org/" class="active">Home</a></li>
-    <li><a href="https://signetent.org/about">About</a></li>
-    <li><a href="https://signetent.org/sectors">Our Sectors</a></li>
-    <li><a href="https://signetent.org/people">Our People</a></li>
-    <li><a href="https://signetent.org/history">History</a></li>
-    <li><a href="https://signetent.org/responsible">Responsible Production</a></li>
-    <li><a href="https://signetent.org/contact" class="nav-cta">Get In Touch</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="sectors.html">Our Sectors</a></li>
+    <li><a href="people.html">Our People</a></li>
+    <li><a href="history.html">History</a></li>
+    <li><a href="responsible.html">Responsible Production</a></li>
   </ul>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  <a href="contact.html" class="nav-cta">Get In Touch</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <img class="hero-img" src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=85&fit=crop&crop=center" alt="Apparel production">
-  <div class="hero-content">
-    <div class="hero-eyebrow">Specialist Apparel Production · Since 1992</div>
-    <h1 class="hero-h1">The Apparel Production Partner<br><em>Behind Global Brands.</em></h1>
-    <p class="hero-desc">Signet Enterprises Limited delivers end-to-end apparel production across workwear, activewear and fashion wear — with permanent in-country teams managing quality, compliance and delivery at every stage.</p>
-    <div class="hero-btns">
-      <a href="https://signetent.org/contact" class="btn-gold">Discuss Your Requirements</a>
-      <a href="https://signetent.org/sectors" class="btn-outline">Our Sectors ↓</a>
+  <div class="hero-left">
+    <p class="hero-eyebrow">Specialist Apparel Production · Since 1992</p>
+    <h1 class="hero-h1">The Apparel<br>Production Partner<br><em>Behind Global Brands.</em></h1>
+    <p class="hero-sub">Signet Enterprises Limited delivers end-to-end apparel production across workwear, activewear and fashion wear — with permanent in-country teams managing quality, compliance and delivery at every stage.</p>
+    <div class="hero-cta-row">
+      <a href="contact.html" class="btn-gold">Discuss Your Requirements</a>
+      <a href="sectors.html" class="btn-ghost">Our Sectors ↓</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><div class="trust-n">30+</div><div class="trust-l">Years Experience</div></div>
+      <div class="trust-item"><div class="trust-n">160</div><div class="trust-l">People Worldwide</div></div>
+      <div class="trust-item"><div class="trust-n">4</div><div class="trust-l">Key Sectors</div></div>
+      <div class="trust-item"><div class="trust-n">5</div><div class="trust-l">Global Offices</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&auto=format&fit=crop" alt="Apparel production">
+  </div>
+</section>
+
+<!-- WHY SIGNET -->
+<section class="why">
+  <div class="why-intro">
+    <div class="eyebrow">Why Signet</div>
+    <div class="sh2">What makes us <em>different.</em></div>
+    <p class="sbody">We are not an agent or a trading company. We are a specialist production group — with our own permanent teams embedded in Bangladesh and Pakistan, managing every stage of production on behalf of our clients.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🏭</div>
+      <div class="why-title">Permanent In-Country Presence</div>
+      <div class="why-body">Our teams are embedded in the factories every day — not visiting occasionally. Direct oversight of production, quality and compliance on the factory floor.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">✅</div>
+      <div class="why-title">End-to-End Accountability</div>
+      <div class="why-body">From brief to delivery, we own every stage. Technical development, fabric sourcing, production management, QA, compliance and shipment — all under one roof.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎯</div>
+      <div class="why-title">Specialist by Sector</div>
+      <div class="why-body">Each sector — workwear, activewear, fashion wear — has its own dedicated specialist team. Deep product knowledge applied to every brief.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📋</div>
+      <div class="why-title">Compliance as Standard</div>
+      <div class="why-body">Full compliance documentation, test certification and audit records provided with every production run. No chasing, no gaps.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤝</div>
+      <div class="why-title">Long-Term Relationships</div>
+      <div class="why-body">Our factory partnerships have been built over 30 years. That depth of relationship is what allows us to maintain standards and resolve issues quickly.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🌍</div>
+      <div class="why-title">Global Reach, Local Expertise</div>
+      <div class="why-body">Five offices across the UK, Hong Kong, UAE, Bangladesh and Pakistan. Serving global brands with the knowledge that only comes from being on the ground.</div>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat"><span class="stat-n">30+</span><span class="stat-l">Years Experience</span></div>
-  <div class="stat"><span class="stat-n">160</span><span class="stat-l">People Worldwide</span></div>
-  <div class="stat"><span class="stat-n">4</span><span class="stat-l">Key Sectors</span></div>
-  <div class="stat"><span class="stat-n">5</span><span class="stat-l">Global Offices</span></div>
-</div>
-
-<!-- WHY SIGNET -->
-<section class="sec sec-white">
-  <div class="sec-label">Why Signet</div>
-  <h2 class="sec-h2">What makes us <em>different.</em></h2>
-  <p class="sec-lead">We are not an agent or a trading company. We are a specialist production group — with our own permanent teams embedded in Bangladesh and Pakistan, managing every stage of production on behalf of our clients.</p>
-  <div class="why-grid">
-    <div class="why-c"><div class="why-icon">🏭</div><div class="why-t">Permanent In-Country Presence</div><div class="why-d">Our teams are embedded in the factories every day — not visiting occasionally. Direct oversight of production, quality and compliance on the factory floor.</div></div>
-    <div class="why-c"><div class="why-icon">✅</div><div class="why-t">End-to-End Accountability</div><div class="why-d">From brief to delivery, we own every stage. Technical development, fabric sourcing, production management, QA, compliance and shipment — all under one roof.</div></div>
-    <div class="why-c"><div class="why-icon">🎯</div><div class="why-t">Specialist by Sector</div><div class="why-d">Each sector — workwear, activewear, apparel and lifestyle — has its own dedicated specialist team. Deep product knowledge applied to every brief.</div></div>
-    <div class="why-c"><div class="why-icon">📋</div><div class="why-t">Compliance as Standard</div><div class="why-d">Full compliance documentation, test certification and audit records provided with every production run. No chasing, no gaps.</div></div>
-    <div class="why-c"><div class="why-icon">🤝</div><div class="why-t">Long-Term Relationships</div><div class="why-d">Our factory partnerships have been built over 30 years. That depth of relationship is what allows us to maintain standards and resolve issues quickly.</div></div>
-    <div class="why-c"><div class="why-icon">🌍</div><div class="why-t">Global Reach, Local Expertise</div><div class="why-d">Five offices across the UK, Hong Kong, UAE, Bangladesh and Pakistan. Serving global brands with the knowledge that only comes from being on the ground.</div></div>
-  </div>
-</section>
-
 <!-- HOW WE WORK -->
-<section class="sec sec-navy">
-  <div class="sec-label">How We Work</div>
-  <h2 class="sec-h2">From brief to delivery.<br><em>We own every stage.</em></h2>
-  <div class="proc-wrap">
-    <div class="proc-c"><div class="proc-n">01</div><div class="proc-t">Development</div><div class="proc-d">Technical specifications, fabric selection and performance requirements developed by our specialist teams before production begins. We own the brief from day one.</div></div>
-    <div class="proc-c"><div class="proc-n">02</div><div class="proc-t">Sourcing</div><div class="proc-d">Fabric and trim sourcing from our established supplier network — verified for compliance, quality and suitability before any production order is placed.</div></div>
-    <div class="proc-c"><div class="proc-n">03</div><div class="proc-t">Production</div><div class="proc-d">Production placed in the right factory for each brief. Our in-country teams are on the floor every day — managing schedules, quality and compliance throughout.</div></div>
-    <div class="proc-c"><div class="proc-n">04</div><div class="proc-t">Shipment</div><div class="proc-d">Logistics managed to ensure reliable on-time delivery worldwide. Full compliance documentation, test certificates and audit records provided with every order.</div></div>
+<section class="how">
+  <div class="eyebrow" style="color:var(--gold)">How We Work</div>
+  <div class="sh2-light">From brief to delivery.<br><em>We own every stage.</em></div>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="how-arrow">›</div>
+      <div class="how-step-num">01</div>
+      <div class="how-step-title">Development</div>
+      <div class="how-step-body">Technical specifications, fabric selection and performance requirements developed by our specialist teams before production begins. We own the brief from day one.</div>
+    </div>
+    <div class="how-step">
+      <div class="how-arrow">›</div>
+      <div class="how-step-num">02</div>
+      <div class="how-step-title">Sourcing</div>
+      <div class="how-step-body">Fabric and trim sourcing from our established supplier network — verified for compliance, quality and suitability before any production order is placed.</div>
+    </div>
+    <div class="how-step">
+      <div class="how-arrow">›</div>
+      <div class="how-step-num">03</div>
+      <div class="how-step-title">Production</div>
+      <div class="how-step-body">Production placed in the right factory for each brief. Our in-country teams are on the floor every day — managing schedules, quality and compliance throughout.</div>
+    </div>
+    <div class="how-step">
+      <div class="how-step-num">04</div>
+      <div class="how-step-title">Shipment</div>
+      <div class="how-step-body">Logistics managed to ensure reliable on-time delivery worldwide. Full compliance documentation, test certificates and audit records provided with every order.</div>
+    </div>
   </div>
 </section>
 
-<!-- SECTORS — FIXED: now four sectors -->
-<section class="sec sec-cream">
-  <div class="sec-label">Our Sectors</div>
-  <h2 class="sec-h2">Four specialist sectors.<br><em>One production group.</em></h2>
+<!-- OUR SECTORS -->
+<section class="sectors">
+  <div class="eyebrow">Our Sectors</div>
+  <div class="sh2">Three specialist sectors.<br><em>One production group.</em></div>
   <div class="sectors-grid">
-
-    <div class="sector-c">
+    <div class="sector-card">
       <div class="sector-num">01</div>
-      <div class="sector-label">01</div>
-      <div class="sector-divider"></div>
       <div class="sector-name">Signet Workwear</div>
-      <div class="sector-sub">Industrial &amp; PPE Garments</div>
+      <span class="sector-tag">Industrial &amp; PPE Garments</span>
+      <p class="sector-body">Specialist production of workwear, PPE and industrial garments — durable, compliant and produced to exacting safety standards.</p>
       <ul class="sector-list">
         <li>High-visibility and protective outerwear</li>
         <li>Industrial workwear and uniforms</li>
@@ -244,13 +321,11 @@ footer{background:#060d14;padding:4rem 5vw 2rem}
         <li>Full compliance and test documentation</li>
       </ul>
     </div>
-
-    <div class="sector-c">
+    <div class="sector-card">
       <div class="sector-num">02</div>
-      <div class="sector-label">02</div>
-      <div class="sector-divider"></div>
       <div class="sector-name">Signet Activewear</div>
-      <div class="sector-sub">Performance &amp; Sport Garments</div>
+      <span class="sector-tag">Performance &amp; Sport Garments</span>
+      <p class="sector-body">Performance activewear across running, cycling, team sports, gym and athleisure — from technical basics to mountain-grade outerwear.</p>
       <ul class="sector-list">
         <li>Technical performance fabrics</li>
         <li>Gym, running, cycling and team sports</li>
@@ -258,13 +333,11 @@ footer{background:#060d14;padding:4rem 5vw 2rem}
         <li>OEKO-TEX, SEDEX and Bluesign certified</li>
       </ul>
     </div>
-
-    <div class="sector-c">
+    <div class="sector-card">
       <div class="sector-num">03</div>
-      <div class="sector-label">03</div>
-      <div class="sector-divider"></div>
       <div class="sector-name">Signet Apparel</div>
-      <div class="sector-sub">Fashion &amp; Brand Garments</div>
+      <span class="sector-tag">Fashion &amp; Lifestyle Garments</span>
+      <p class="sector-body">Commercial fashion and lifestyle production for global brands — quality of finish, consistency at scale and reliable delivery as standard.</p>
       <ul class="sector-list">
         <li>Commercial fashion and retail garments</li>
         <li>Branded and lifestyle casualwear</li>
@@ -272,136 +345,147 @@ footer{background:#060d14;padding:4rem 5vw 2rem}
         <li>Consistent quality and compliance</li>
       </ul>
     </div>
-
-    <div class="sector-c">
-      <div class="sector-num">04</div>
-      <div class="sector-label">04</div>
-      <div class="sector-divider"></div>
-      <div class="sector-name">Signet Lifestyle</div>
-      <div class="sector-sub">Lifestyle &amp; Homewear Garments</div>
-      <ul class="sector-list">
-        <li>Leisurewear and everyday lifestyle collections</li>
-        <li>Nightwear, loungewear and homewear</li>
-        <li>Soft accessories and lifestyle products</li>
-        <li>Retail-ready quality and compliance</li>
-      </ul>
-    </div>
-
   </div>
-  <div class="sector-cta">
-    <a href="https://signetent.org/sectors">View All Sectors</a>
+  <div style="text-align:center;margin-top:40px">
+    <a href="sectors.html" class="btn-gold" style="display:inline-block">View All Sectors</a>
   </div>
 </section>
 
-<!-- QUALITY ASSURANCE -->
-<section class="sec sec-dark">
-  <div class="sec-label">Quality Assurance</div>
-  <h2 class="sec-h2">A preventive QA system.<br><em>Not just a final check.</em></h2>
+<!-- QA SECTION -->
+<section class="qa">
+  <div class="eyebrow" style="color:var(--gold)">Quality Assurance</div>
+  <div class="sh2-light">A preventive QA system.<br><em>Not just a final check.</em></div>
   <div class="qa-grid">
-    <div class="qa-c"><div class="qa-stage">Stage 1</div><div class="qa-t">In-Line Inspection</div><div class="qa-d">Quality checks conducted during production — at critical construction stages — before issues can compound. Problems are identified and corrected on the production floor, not after.</div></div>
-    <div class="qa-c"><div class="qa-stage">Stage 2</div><div class="qa-t">Pre-Final Inspection</div><div class="qa-d">A comprehensive inspection of finished garments before packing begins — covering measurements, construction, appearance and labelling against the approved sample and tech pack.</div></div>
-    <div class="qa-c"><div class="qa-stage">Stage 3</div><div class="qa-t">AQL Final Inspection</div><div class="qa-d">Random sampling to internationally recognised AQL standards on packed, ready-to-ship goods. Full inspection reports provided to clients as standard with every production run.</div></div>
-  </div>
-  <p class="qa-sub">Our quality approach is preventive, not reactive. By managing quality at every stage of production — not just the end — we ensure issues are caught early, costs are controlled and delivery dates are protected.</p>
-  <div class="qa-icons">
-    <div class="qa-icon-c"><div class="qa-icon">📐</div><div class="qa-icon-t">Measurement Verification</div></div>
-    <div class="qa-icon-c"><div class="qa-icon">🧵</div><div class="qa-icon-t">Construction Standards</div></div>
-    <div class="qa-icon-c"><div class="qa-icon">🧪</div><div class="qa-icon-t">Lab Testing</div></div>
+    <div class="qa-process">
+      <div class="qa-step">
+        <div class="qa-step-label">Stage 1</div>
+        <div class="qa-step-title">In-Line Inspection</div>
+        <div class="qa-step-body">Quality checks conducted during production — at critical construction stages — before issues can compound. Problems are identified and corrected on the production floor, not after.</div>
+      </div>
+      <div class="qa-step">
+        <div class="qa-step-label">Stage 2</div>
+        <div class="qa-step-title">Pre-Final Inspection</div>
+        <div class="qa-step-body">A comprehensive inspection of finished garments before packing begins — covering measurements, construction, appearance and labelling against the approved sample and tech pack.</div>
+      </div>
+      <div class="qa-step">
+        <div class="qa-step-label">Stage 3</div>
+        <div class="qa-step-title">AQL Final Inspection</div>
+        <div class="qa-step-body">Random sampling to internationally recognised AQL standards on packed, ready-to-ship goods. Full inspection reports provided to clients as standard with every production run.</div>
+      </div>
+    </div>
+    <div>
+      <p class="sbody-bright" style="margin-bottom:24px">Our quality approach is preventive, not reactive. By managing quality at every stage of production — not just the end — we ensure issues are caught early, costs are controlled and delivery dates are protected.</p>
+      <div class="qa-points">
+        <div class="qa-point">
+          <div class="qa-point-icon">📐</div>
+          <div>
+            <div class="qa-point-title">Measurement Verification</div>
+            <div class="qa-point-body">All critical measurements checked against approved specs at multiple production stages.</div>
+          </div>
+        </div>
+        <div class="qa-point">
+          <div class="qa-point-icon">🧵</div>
+          <div>
+            <div class="qa-point-title">Construction Standards</div>
+            <div class="qa-point-body">Seam strength, stitch density, trim attachment and construction integrity checked throughout.</div>
+          </div>
+        </div>
+        <div class="qa-point">
+          <div class="qa-point-icon">🧪</div>
+          <div>
+            <div class="qa-point-title">Lab Testing</div>
+            <div class="qa-point-body">Fabric and garment testing against relevant standards — wash fastness, tensile strength, chemical compliance and more.</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- RESPONSIBLE PRODUCTION -->
-<section class="sec sec-char">
-  <div class="sec-label">Responsible Production</div>
-  <h2 class="sec-h2">Production held to<br><em>a higher standard.</em></h2>
-  <p class="sec-lead">We hold our factory network to standards that go beyond certification — treating compliance as a live commitment, not a periodic exercise.</p>
+<section class="responsible">
+  <div class="eyebrow">Responsible Production</div>
+  <div class="sh2">Production held to <em>a higher standard.</em></div>
+  <p class="sbody" style="max-width:640px;margin-bottom:40px">We hold our factory network to standards that go beyond certification — treating compliance as a live commitment, not a periodic exercise.</p>
   <div class="resp-grid">
-    <div class="resp-c"><div class="resp-t">Ethical Labour Standards</div><div class="resp-d">All factories meet ILO core labour conventions — fair wages, safe working conditions, freedom of association and prohibition of forced and child labour.</div></div>
-    <div class="resp-c"><div class="resp-t">Environmental Responsibility</div><div class="resp-d">Water management, chemical controls, waste reduction and carbon tracking across all production facilities — with annual improvement targets.</div></div>
-    <div class="resp-c"><div class="resp-t">Compliance &amp; Transparency</div><div class="resp-d">Full audit records, supply chain mapping and compliance documentation provided to clients as standard — not on request.</div></div>
-    <div class="resp-c"><div class="resp-t">Continuous Improvement</div><div class="resp-d">We work alongside factory partners to raise standards year on year. Certification is our baseline — our goal is always to go further.</div></div>
+    <div class="resp-card">
+      <div class="resp-title">Ethical Labour Standards</div>
+      <div class="resp-body">All factories meet ILO core labour conventions — fair wages, safe working conditions, freedom of association and prohibition of forced and child labour.</div>
+    </div>
+    <div class="resp-card">
+      <div class="resp-title">Environmental Responsibility</div>
+      <div class="resp-body">Water management, chemical controls, waste reduction and carbon tracking across all production facilities — with annual improvement targets.</div>
+    </div>
+    <div class="resp-card">
+      <div class="resp-title">Compliance &amp; Transparency</div>
+      <div class="resp-body">Full audit records, supply chain mapping and compliance documentation provided to clients as standard — not on request.</div>
+    </div>
+    <div class="resp-card">
+      <div class="resp-title">Continuous Improvement</div>
+      <div class="resp-body">We work alongside factory partners to raise standards year on year. Certification is our baseline — our goal is always to go further.</div>
+    </div>
   </div>
-  <div class="certs">
-    <span class="cert">OEKO-TEX STEP</span>
-    <span class="cert">SEDEX</span>
-    <span class="cert">BSCI</span>
-    <span class="cert">Fair Wear Foundation</span>
-    <span class="cert">OEKO-TEX 100</span>
-    <span class="cert">Bluesign</span>
+  <div class="certs-strip">
+    <span class="cert-badge">OEKO-TEX STEP</span>
+    <span class="cert-badge">SEDEX</span>
+    <span class="cert-badge">BSCI</span>
+    <span class="cert-badge">Fair Wear Foundation</span>
+    <span class="cert-badge">OEKO-TEX 100</span>
+    <span class="cert-badge">Bluesign</span>
   </div>
 </section>
 
 <!-- OFFICES -->
-<section class="sec sec-white">
-  <div class="sec-label">Our Offices</div>
-  <h2 class="sec-h2">Five offices.<br><em>One consistent standard.</em></h2>
+<section class="offices">
+  <div class="eyebrow" style="color:var(--gold)">Our Offices</div>
+  <div class="sh2-light">Five offices.<br><em>One consistent standard.</em></div>
   <div class="offices-grid">
-    <div class="office-c"><div class="office-country">United Kingdom</div><div class="office-role">Group headquarters &amp; client management</div></div>
-    <div class="office-c"><div class="office-country">Hong Kong</div><div class="office-role">Finance &amp; commercial operations</div></div>
-    <div class="office-c"><div class="office-country">UAE</div><div class="office-role">Commercial &amp; client management</div></div>
-    <div class="office-c"><div class="office-country">Bangladesh</div><div class="office-role">Production &amp; QC hub</div></div>
-    <div class="office-c"><div class="office-country">Pakistan</div><div class="office-role">Production &amp; QC hub</div></div>
+    <div class="office-card"><div class="office-city">United Kingdom</div><div class="office-role">Group headquarters &amp; client management</div></div>
+    <div class="office-card"><div class="office-city">Hong Kong</div><div class="office-role">Finance &amp; commercial operations</div></div>
+    <div class="office-card"><div class="office-city">UAE</div><div class="office-role">Commercial &amp; client management</div></div>
+    <div class="office-card"><div class="office-city">Bangladesh</div><div class="office-role">Production &amp; QC hub</div></div>
+    <div class="office-card"><div class="office-city">Pakistan</div><div class="office-role">Production &amp; QC hub</div></div>
   </div>
 </section>
 
-<!-- GET IN TOUCH -->
-<section class="sec sec-navy">
-  <div class="sec-label">Get In Touch</div>
-  <h2 class="sec-h2">Let's start<br><em>a conversation.</em></h2>
-  <p class="sec-lead">Whether you have a detailed brief or are exploring what's possible — we are always happy to talk. Please use the email address below for all enquiries.</p>
-  <div class="contact-email">
-    <a href="mailto:info@signetent.org" style="color:rgba(255,255,255,.75);text-decoration:none">info@signetent.org</a>
+<!-- CONTACT BAND -->
+<section class="contact-band">
+  <div>
+    <div class="eyebrow" style="color:var(--gold)">Get In Touch</div>
+    <div class="sh2-light">Let's start<br><em>a conversation.</em></div>
+    <p class="sbody-bright">Whether you have a detailed brief or are exploring what's possible — we are always happy to talk. Please use the email address below for all enquiries.</p>
+    <div class="contact-links">
+      <div class="contact-link">
+        <span class="contact-link-icon">✉</span>
+        <div><div class="contact-link-label">Email</div><div class="contact-link-val" id="hp-email"></div></div>
+      </div>
+      <script>(function(){var u='info',d='signetent.com',a=String.fromCharCode(64);document.getElementById('hp-email').innerHTML='<a href="mailto:'+u+a+d+'" style="color:inherit;text-decoration:none">'+u+a+d+'</a>';})()</script>
+      <a href="https://www.linkedin.com/company/signet-enterprises" class="contact-link" target="_blank">
+        <span class="contact-link-icon">🔗</span>
+        <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-val">Signet Enterprises Limited</div></div>
+      </a>
+    </div>
   </div>
-  <div style="margin-top:2rem">
-    <a href="https://www.linkedin.com/company/signet-enterprises" style="font-size:12px;color:var(--gold);text-decoration:none;letter-spacing:.06em">🔗 LinkedIn — Signet Enterprises Limited</a>
+  <div class="contact-quote">
+    <blockquote>"We have always believed that the difference between a good production partner and a great one is the people — their knowledge, their presence and their commitment to getting it right, every time."</blockquote>
+    <cite>Signet Enterprises Limited · Est. 1992</cite>
   </div>
-  <blockquote style="margin-top:3rem;padding:2rem;border-left:3px solid var(--gold);background:rgba(255,255,255,.04);font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,.58);line-height:1.75;max-width:620px">
-    "We have always believed that the difference between a good production partner and a great one is the people — their knowledge, their presence and their commitment to getting it right, every time."
-  </blockquote>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-top">
-    <div>
-      <div class="footer-brand">Signet Enterprises Limited</div>
-      <div class="footer-sub">Est. 1992 · signetent.org</div>
-      <div class="footer-desc">A specialist apparel production group — operating across workwear, activewear, apparel and lifestyle since 1992.<br><br>House 9/11, Road 21, Nikunja-02, Dhaka-1229, Bangladesh</div>
-    </div>
-    <div>
-      <div class="footer-col-t">Our Sectors</div>
-      <ul class="footer-links">
-        <li><a href="https://signetent.org/sectors#workwear">Signet Workwear</a></li>
-        <li><a href="https://signetent.org/sectors#activewear">Signet Activewear</a></li>
-        <li><a href="https://signetent.org/sectors#apparel">Signet Apparel</a></li>
-        <li><a href="https://signetent.org/sectors#lifestyle">Signet Lifestyle</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-t">Company</div>
-      <ul class="footer-links">
-        <li><a href="https://signetent.org/about">About the Group</a></li>
-        <li><a href="https://signetent.org/people">Our People</a></li>
-        <li><a href="https://signetent.org/history">Our History</a></li>
-        <li><a href="https://signetent.org/responsible">Responsible Production</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-t">Our Offices</div>
-      <ul class="footer-links">
-        <li><a href="#">United Kingdom</a></li>
-        <li><a href="#">Hong Kong</a></li>
-        <li><a href="#">UAE</a></li>
-        <li><a href="#">Bangladesh</a></li>
-        <li><a href="#">Pakistan</a></li>
-      </ul>
-    </div>
+  <div>
+    <img src="data:image/png;base64,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" alt="Signet Enterprises Limited" style="height:24px;width:auto;display:block;margin-bottom:16px;opacity:.7">
+    <p class="ftagline">A specialist apparel production group — operating across workwear, activewear and fashion wear since 1992.</p>
+    <div class="faddr">House 9/11, Road 21<br>Nikunja-02, Dhaka-1229, Bangladesh<br><span id="email-1"></span><script>(function(){var u='info',d='signetent.com',a=String.fromCharCode(64);document.getElementById('email-1').innerHTML='<a href="mailto:'+u+a+d+'" style="color:inherit;text-decoration:none">'+u+a+d+'</a>';})();</script></div>
   </div>
-  <div class="footer-bottom">
-    <span>© 2026 Signet Enterprises Limited. All rights reserved.</span>
-    <span>signetent.org</span>
-  </div>
+  <div><div class="fcol-t">Our Sectors</div><ul class="flinks"><li><a href="sectors.html#workwear">Signet Workwear</a></li><li><a href="sectors.html#activewear">Signet Activewear</a></li><li><a href="sectors.html#apparel">Signet Apparel</a></li><li><a href="sectors.html#lifestyle">Signet Lifestyle</a></li></ul></div>
+  <div><div class="fcol-t">Company</div><ul class="flinks"><li><a href="about.html">About the Group</a></li><li><a href="people.html">Our People</a></li><li><a href="history.html">Our History</a></li><li><a href="responsible.html">Responsible Production</a></li></ul></div>
+  <div><div class="fcol-t">Our Offices</div><ul class="flinks"><li>United Kingdom</li><li>Hong Kong</li><li>UAE</li><li>Bangladesh</li><li>Pakistan</li></ul></div>
 </footer>
-
+<div class="fbot">
+  <span>&#169; 2026 Signet Enterprises Limited. All rights reserved.</span>
+  <span>signetent.org</span>
+</div>
 </body>
 </html>
